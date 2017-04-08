@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Common components -->
+    <dimen name="fab_margin">24dp</dimen>
+
+</resources>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- General guidelines -->
+    <!-- ================== -->
+
+    <!-- Default screen margins -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!-- Content margins/sizes -->
+    <dimen name="content_margin_vertical">8dp</dimen>
+    <dimen name="content_margin_horizontal">72dp</dimen>
+    <dimen name="content_edge_margin_vertical">24dp</dimen>
+
+    <!-- Elevations -->
+    <dimen name="elevation_toolbar">4dp</dimen>
+    <dimen name="elevation_content">4dp</dimen>
+
+    <!-- Dimension ratios -->
+    <string name="dimension_ratio_home_hero">H, 16:10</string>
+
+    <!-- Common components -->
+    <!-- ================= -->
+    <dimen name="divider_height">1dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
+    <!-- App bar/toolbar -->
+    <dimen name="app_bar_height">96dp</dimen>
+
+    <!-- List margins/sizes -->
+    <dimen name="subheader_height">48dp</dimen>
+
+    <!-- Examples -->
+    <!-- Alignment example -->
+    <dimen name="alignment_radio_group_margin_horizontal">40dp</dimen>
+    <dimen name="alignment_radio_group_margin_bottom">24dp</dimen>
+
+    <dimen name="alignment_rectangle_height">80dp</dimen>
+    <dimen name="alignment_rectangle_margin_vertical">24dp</dimen>
+    <dimen name="alignment_rectangle_margin_bottom">72dp</dimen>
+
+    <dimen name="alignment_anchor_min_size">24dp</dimen>
+    <dimen name="alignment_anchor_max_size">48dp</dimen>
+
+    <dimen name="alignment_seek_bar_min_height">48dp</dimen>
+    <dimen name="alignment_seek_bar_margin_top">24dp</dimen>
+    <dimen name="alignment_seek_bar_margin_bottom">24dp</dimen>
+    <dimen name="alignment_seek_bar_margin_horizontal">56dp</dimen>
+
+    <!-- Dimension ratio example -->
+    <dimen name="dimension_ratio_square_image_size">88dp</dimen>
+    <dimen name="dimension_ratio_square_image_margin_bottom">16dp</dimen>
+    <dimen name="dimension_ratio_square_image_margin_top">24dp</dimen>
+    <dimen name="dimension_ratio_label_margin_horizontal">8dp</dimen>
+    <dimen name="dimension_ratio_seek_bar_margin_bottom">48dp</dimen>
+    <dimen name="dimension_ratio_activity_padding_bottom">24dp</dimen>
+
+</resources>

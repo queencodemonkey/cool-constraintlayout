@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@id/constraint_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/content_edge_margin_vertical"
+    android:paddingTop="@dimen/content_edge_margin_vertical"
+    android:clipToPadding="false">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_begin="@dimen/content_margin_horizontal"
+        android:orientation="vertical" />
+
+    <com.randomlytyping.ccl.view.SquareImageView
+        android:id="@+id/square_image_view"
+        style="@style/DimensionRatioImage"
+        android:layout_width="@dimen/dimension_ratio_square_image_size"
+        android:layout_height="@dimen/dimension_ratio_square_image_size"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/unsplash_neven_krcmarek_grapes"
+        tools:layout_editor_absoluteX="72dp" />
+
+    <View
+        android:id="@+id/divider_01"
+        style="@style/Divider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/dimension_ratio_square_image_margin_bottom"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/square_image_view"/>
+
+    <TextView
+        android:id="@+id/subheader_image_ratio"
+        style="@style/TextView.Subheader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/subheader_height"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider_01"
+        android:paddingStart="0dp"
+        android:paddingEnd="0dp"
+        android:text="@string/ratio_group_title" />
+
+    <ImageView
+        android:id="@+id/size_01"
+        style="@style/DimensionRatioImage"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dimension_ratio_square_image_size"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/subheader_image_ratio"
+        app:layout_constraintBottom_toTopOf="@+id/size_02"
+        app:layout_constraintVertical_chainStyle="spread_inside"
+        app:layout_constraintDimensionRatio="W,1"
+        android:contentDescription="@null"
+        android:src="@drawable/unsplash_neven_krcmarek_grapes" />
+
+    <ImageView
+        android:id="@+id/size_02"
+        style="@style/DimensionRatioImage"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dimension_ratio_square_image_size"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/size_01"
+        app:layout_constraintBottom_toTopOf="@+id/size_03"
+        app:layout_constraintDimensionRatio="W,4:3"
+        android:contentDescription="@null"
+        android:src="@drawable/unsplash_neven_krcmarek_grapes" />
+
+    <ImageView
+        android:id="@+id/size_03"
+        style="@style/DimensionRatioImage"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dimension_ratio_square_image_size"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/size_02"
+        app:layout_constraintBottom_toTopOf="@+id/size_04"
+        app:layout_constraintDimensionRatio="W,16:9"
+        android:contentDescription="@null"
+        android:src="@drawable/unsplash_neven_krcmarek_grapes" />
+
+    <ImageView
+        android:id="@+id/size_04"
+        style="@style/DimensionRatioImage"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dimension_ratio_square_image_size"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/size_03"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="W,3:1"
+        android:contentDescription="@null"
+        android:src="@drawable/unsplash_neven_krcmarek_grapes" />
+
+    <TextView
+        android:id="@+id/square_image_label"
+        style="@style/TextView.Label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dimension_ratio_label_margin_horizontal"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/square_image_view"
+        app:layout_constraintBottom_toTopOf="@+id/square_image_view"
+        android:text="@string/ratio_1_1" />
+
+    <TextView
+        style="@style/TextView.Label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimension_ratio_label_margin_horizontal"
+        app:layout_constraintStart_toEndOf="@+id/square_image_view"
+        app:layout_constraintBaseline_toBaselineOf="@+id/square_image_label"
+        android:text="@string/square_image_view" />
+
+    <TextView
+        style="@style/TextView.Label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dimension_ratio_label_margin_horizontal"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/size_01"
+        app:layout_constraintBottom_toTopOf="@+id/size_01"
+        android:text="@string/ratio_1_1" />
+
+    <TextView
+        style="@style/TextView.Label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dimension_ratio_label_margin_horizontal"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/size_02"
+        app:layout_constraintBottom_toTopOf="@+id/size_02"
+        android:text="@string/ratio_4_3" />
+
+    <TextView
+        style="@style/TextView.Label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dimension_ratio_label_margin_horizontal"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/size_03"
+        app:layout_constraintBottom_toTopOf="@+id/size_03"
+        android:text="@string/ratio_16_9" />
+
+    <TextView
+        style="@style/TextView.Label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dimension_ratio_label_margin_horizontal"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/size_04"
+        app:layout_constraintBottom_toTopOf="@+id/size_04"
+        android:text="@string/ratio_3_1" />
+
+</android.support.constraint.ConstraintLayout>

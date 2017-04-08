@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Content container layouts -->
+    <item name="scroll_view" type="id" />
+    <item name="linear_layout" type="id" />
+    <item name="constraint_layout" type="id" />
+
+</resources>

@@ -1,0 +1,60 @@
+<resources>
+
+    <!-- Views -->
+    <!-- ===== -->
+
+    <style name="Divider">
+        <item name="android:background">@color/divider_light</item>
+    </style>
+
+    <style name="Fab" parent="Widget.Design.FloatingActionButton">
+        <item name="android:clickable">true</item>
+        <item name="android:tint">@android:color/white</item>
+        <item name="fabSize">normal</item>
+    </style>
+
+    <!-- Toolbar -->
+    <style name="Toolbar">
+        <item name="android:background">?attr/colorPrimary</item>
+        <item name="android:theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+        <item name="popupTheme">@style/ThemeOverlay.AppCompat.Dark</item>
+    </style>
+
+    <style name="Toolbar.Transparent">
+        <item name="android:background">@null</item>
+        <item name="android:theme">@style/ThemeOverlay.AppCompat.ActionBar</item>
+        <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+    </style>
+
+    <!-- TextView -->
+    <style name="TextView" />
+
+    <style name="TextView.Subheader">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Subhead</item>
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+    </style>
+
+    <style name="TextView.Label">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Subhead</item>
+    </style>
+
+
+    <!-- Example styles -->
+    <!-- ============== -->
+
+    <!-- Alignment example -->
+    <style name="Alignment" />
+
+    <style name="Alignment.Handle">
+        <item name="android:background">@drawable/ic_stop_black_24dp</item>
+    </style>
+
+    <!-- Dimension ratio example -->
+    <style name="DimensionRatioImage">
+        <item name="android:contentDescription">@null</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+</resources>

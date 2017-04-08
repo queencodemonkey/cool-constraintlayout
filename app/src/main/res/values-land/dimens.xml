@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- General guidelines -->
+    <!-- ================== -->
+
+    <!-- Dimension ratios -->
+    <string name="dimension_ratio_home_hero">H, 3:1</string>
+
+</resources>

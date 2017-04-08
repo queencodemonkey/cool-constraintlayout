@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- App palette -->
+    <color name="colorPrimary">#4D4D4D</color>
+    <color name="colorPrimaryDark">#212121</color>
+    <color name="colorAccent">#AD1457</color>
+
+    <!-- Black/whites -->
+    <color name="black_12p">#1E000000</color>
+
+    <!-- Component colors -->
+    <color name="divider_light">@color/black_12p</color>
+
+</resources>

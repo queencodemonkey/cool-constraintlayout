@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <!-- Views -->
+    <!-- ===== -->
+
+    <!-- Toolbar -->
+    <style name="Toolbar">
+        <item name="android:background">?attr/colorPrimary</item>
+        <item name="android:theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+        <item name="android:popupTheme">@style/ThemeOverlay.AppCompat.Dark</item>
+        <item name="android:elevation">@dimen/elevation_toolbar</item>
+    </style>
+
+    <!-- Example styles -->
+    <!-- ============== -->
+
+    <!-- Alignment example -->
+    <style name="Alignment.Handle">
+        <item name="android:backgroundTint">@color/colorAccent</item>
+        <item name="android:background">@drawable/ic_stop_black_24dp</item>
+    </style>
+
+    <!-- Dimension ratio example -->
+    <style name="DimensionRatioImage">
+        <item name="android:scaleType">centerCrop</item>
+        <item name="android:background">@android:color/white</item>
+        <item name="android:elevation">@dimen/elevation_content</item>
+    </style>
+
+</resources>
