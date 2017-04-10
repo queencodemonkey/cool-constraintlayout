@@ -40,6 +40,11 @@
         <item name="android:textAppearance">@style/TextAppearance.AppCompat.Subhead</item>
     </style>
 
+    <style name="TextView.DisplayGothic">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Display4</item>
+        <item name="fontPath">fonts/LeagueGothicRegular.otf</item>
+    </style>
+
     <!-- Example styles -->
     <!-- ============== -->
 
@@ -54,6 +59,56 @@
     <style name="DimensionRatioImage">
         <item name="android:contentDescription">@null</item>
         <item name="android:scaleType">centerCrop</item>
+    </style>
+
+    <!-- Chains example -->
+    <style name="ChainText">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Subhead</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="fontPath">fonts/LeagueGothicRegular.otf</item>
+
+        <item name="android:paddingStart">@dimen/chains_text_padding_horizontal</item>
+        <item name="android:paddingEnd">@dimen/chains_text_padding_horizontal</item>
+    </style>
+
+    <style name="ChainText.A">
+        <item name="android:background">@color/cyan_a100</item>
+    </style>
+
+    <style name="ChainText.B">
+        <item name="android:background">@color/deep_orange_a400</item>
+    </style>
+
+    <style name="ChainText.C">
+        <item name="android:background">@color/pink_200</item>
+    </style>
+
+    <style name="ChainText.D">
+        <item name="android:background">@color/android_green</item>
+    </style>
+
+    <style name="ChainImage">
+        <item name="android:padding">@dimen/chains_image_padding</item>
+    </style>
+
+    <style name="ChainImage.A">
+        <item name="srcCompat">@drawable/ic_snowflake_black_24dp</item>
+        <item name="android:background">@color/cyan_a100</item>
+    </style>
+
+    <style name="ChainImage.B">
+        <item name="srcCompat">@drawable/ic_fire_black_24dp</item>
+        <item name="android:background">@color/deep_orange_a400</item>
+    </style>
+
+    <style name="ChainImage.C">
+        <item name="srcCompat">@drawable/ic_spa_black_24dp</item>
+        <item name="android:background">@color/pink_200</item>
+    </style>
+
+    <style name="ChainImage.D">
+        <item name="srcCompat">@drawable/ic_android_black_24dp</item>
+        <item name="android:background">@color/android_green</item>
     </style>
 
 </resources>

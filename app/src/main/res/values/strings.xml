@@ -43,6 +43,14 @@
     <string name="ratio_4_3">4:3</string>
     <string name="ratio_3_1">3:1</string>
 
+    <!-- Chains Example -->
+    <!-- ===================== -->
+
+    <string name="chains_text_a">Alpha</string>
+    <string name="chains_text_b">Beta</string>
+    <string name="chains_text_c">Gamma</string>
+    <string name="chains_text_d">Delta</string>
+
     <!-- ConstraintSet Example -->
     <!-- ===================== -->
 
