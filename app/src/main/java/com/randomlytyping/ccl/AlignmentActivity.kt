@@ -67,7 +67,7 @@ class AlignmentActivity : AppCompatActivity() {
       it.setDisplayHomeAsUpEnabled(true)
     }
 
-    // Initialize constraint set
+    // Initialize constraint set.
     constraintSet.clone(constraintLayout)
 
     // Set up anchors
@@ -114,7 +114,7 @@ class AlignmentActivity : AppCompatActivity() {
     frameAnchorStart.tintBackground(colorAccent)
     frameAnchorEnd.tintBackground(colorAccent)
 
-    anchorMarginHorizontal = resources.getDimensionPixelSize(R.dimen.alignment_content_margin_horizontal)
+    anchorMarginHorizontal = resources.getDimensionPixelSize(R.dimen.content_margin_horizontal)
     anchorMarginVertical = resources.getDimensionPixelSize(R.dimen.alignment_rectangle_margin_vertical)
 
     updateManualAnchors()
@@ -152,7 +152,7 @@ class AlignmentActivity : AppCompatActivity() {
   private fun toDimensionRatio(@IdRes radioButtonId: Int) = getString(when (radioButtonId) {
     R.id.ratio_01 -> R.string.ratio_3_1
     R.id.ratio_02 -> R.string.ratio_16_9
-    R.id.ratio_03 -> R.string.ratio_1_1
+    R.id.ratio_03 -> R.string.ratio_4_3
     else -> R.string.ratio_3_1
   })
 
