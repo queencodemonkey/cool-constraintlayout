@@ -28,10 +28,24 @@
     <!-- App bar/toolbar -->
     <dimen name="app_bar_height">96dp</dimen>
 
+    <!-- Avatar/icons -->
+    <dimen name="avatar_size">40dp</dimen>
+
     <!-- List margins/sizes -->
     <dimen name="subheader_height">48dp</dimen>
 
+    <!-- List tiles -->
+    <dimen name="list_tile_min_height_avatar_text">72dp</dimen>
+    <dimen name="list_tile_avatar_margin_start">@dimen/activity_horizontal_margin</dimen>
+    <dimen name="list_tile_avatar_margin_vertical">16dp</dimen>
+    <dimen name="list_tile_text_margin_start">@dimen/content_margin_horizontal</dimen>
+    <dimen name="list_tile_text_margin_vertical">20dp</dimen>
+    <dimen name="list_tile_text_margin_end">16dp</dimen>
+    <dimen name="list_tile_icon_end_margin_end">@dimen/activity_horizontal_margin</dimen>
+
     <!-- Examples -->
+    <!-- ======== -->
+
     <!-- Alignment example -->
     <dimen name="alignment_radio_group_margin_horizontal">40dp</dimen>
     <dimen name="alignment_radio_group_margin_bottom">24dp</dimen>

@@ -46,4 +46,26 @@
     <!-- ConstraintSet Example -->
     <!-- ===================== -->
 
+    <!-- List Items -->
+    <!-- ========== -->
+    <string name="content_description_image_thumbnail">image thumbnail</string>
+
+    <string name="unsplash_cory_seward">Cory Seward</string>
+    <string name="unsplash_roberta_sorge">Roberta Sorge</string>
+    <string name="unsplash_tatiana_lapina">Tatiana Lapina</string>
+    <string name="unsplash_shumilov_ludmila">Shumilov Ludmila</string>
+    <string name="unsplash_julia_d_alkmin">Julia D\'Alkmin</string>
+    <string name="unsplash_nousnou_iwasaki">Nousnou Iwasaki</string>
+    <string name="unsplash_mike_kenneally">Mike Kenneally</string>
+    <string name="unsplash_danielle_macinnes">Danielle MacInnes</string>
+
+    <string name="unsplash_url_cory_seward">https://unsplash.com/photos/svazqK-ShNk</string>
+    <string name="unsplash_url_roberta_sorge">https://unsplash.com/photos/kp9UVn-PUac</string>
+    <string name="unsplash_url_tatiana_lapina">https://unsplash.com/photos/qpf2glK0bAA</string>
+    <string name="unsplash_url_shumilov_ludmila">https://unsplash.com/photos/j7X_hySaUa4</string>
+    <string name="unsplash_url_julia_d_alkmin">https://unsplash.com/photos/WKCjwrtjhVg</string>
+    <string name="unsplash_url_nousnou_iwasaki">https://unsplash.com/photos/myPzH34VYK4</string>
+    <string name="unsplash_url_mike_kenneally">https://unsplash.com/photos/8eJPcAuqIhY</string>
+    <string name="unsplash_url_danielle_macinnes">https://unsplash.com/photos/yOT5d1PqLGY</string>
+
 </resources>
