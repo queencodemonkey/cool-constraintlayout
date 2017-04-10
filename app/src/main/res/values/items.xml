@@ -9,7 +9,7 @@
         <item>@drawable/unsplash_julia_d_alkmin_ice_tea</item>
         <item>@drawable/unsplash_nousnou_iwasaki_coffee_beans</item>
         <item>@drawable/unsplash_mike_kenneally_green_beans</item>
-        <item>@drawable/unsplash_danielle_macInnes_artichokes</item>
+        <item>@drawable/unsplash_danielle_macinnes_artichokes</item>
     </integer-array>
 
     <integer-array name="unsplash_attributions">
