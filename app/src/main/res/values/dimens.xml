@@ -35,6 +35,7 @@
     <dimen name="button_margin_horizontal">8dp</dimen>
 
     <!-- List margins/sizes -->
+    <dimen name="list_icon_start_margin_end">32dp</dimen>
     <dimen name="subheader_height">48dp</dimen>
 
     <!-- List tiles -->

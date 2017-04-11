@@ -8,5 +8,6 @@
     android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
     android:paddingStart="?android:attr/listPreferredItemPaddingStart"
     android:background="?android:attr/selectableItemBackground"
+    android:drawablePadding="@dimen/list_icon_start_margin_end"
     android:gravity="center_vertical"
     android:textAppearance="?android:attr/textAppearanceListItemSmall" />

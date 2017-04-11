@@ -2,8 +2,12 @@ package com.randomlytyping.ccl
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
+import android.support.annotation.ColorInt
 import android.support.annotation.StringRes
+import android.support.v4.content.ContextCompat
+import android.support.v4.graphics.drawable.DrawableCompat
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -12,6 +16,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import butterknife.ButterKnife
+import rt.randamu.getResourceIdArray
 
 /**
  * Launcher activity + example selector.
@@ -25,7 +30,7 @@ class MainActivity : AppCompatActivity() {
     setContentView(R.layout.activity_main)
 
     ButterKnife.findById<RecyclerView>(this, android.R.id.list).also {
-      it.adapter = ExampleListAdapter(this)
+      it.adapter = ExampleListAdapter()
       it.layoutManager = LinearLayoutManager(this)
     }
   }
@@ -52,20 +57,23 @@ class MainActivity : AppCompatActivity() {
   /**
    * RecyclerView adapter
    */
-  private inner class ExampleListAdapter(val context: Context,
-                                         val inflater: LayoutInflater = LayoutInflater.from(context))
+  private inner class ExampleListAdapter(val inflater: LayoutInflater = LayoutInflater.from(this))
     : RecyclerView.Adapter<ExampleViewHolder>() {
 
     /**
      * List of string resource IDs that represent all the navigable examples.
      */
-    var examples: List<Int> = listOf()
+    private val examples: List<Int> = resources.getResourceIdArray(R.array.examples)
 
-    init {
-      val typedArray = context.resources.obtainTypedArray(R.array.examples)
-      examples = (0..typedArray.length() - 1).map { i -> typedArray.getResourceId(i, -1) }
-      typedArray.recycle()
-    }
+    /**
+     * List of icon resource IDs that represent all the navigable examples.
+     */
+    private val icons: List<Int> = resources.getResourceIdArray(R.array.example_icons)
+
+    /**
+     * Color used to tint icons.
+     */
+    @ColorInt private val tint:Int = ContextCompat.getColor(this@MainActivity, R.color.icon_active_color)
 
     //
     // RecyclerView.Adapter<ExampleViewHolder> implementation
@@ -76,11 +84,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         ExampleViewHolder(
             inflater.inflate(R.layout.list_item_example, parent, false),
-            this@MainActivity::navigateToExample
+            this@MainActivity::navigateToExample,
+            tint
         )
 
     override fun onBindViewHolder(holder: ExampleViewHolder, position: Int) {
       holder.resId = examples[position]
+      holder.iconId = icons[position]
     }
   }
 
@@ -93,6 +103,7 @@ class MainActivity : AppCompatActivity() {
    */
   private class ExampleViewHolder(itemView: View,
                                   exampleListener: (Int) -> Unit,
+                                  @ColorInt private val tint:Int,
                                   private val textView: TextView = itemView as TextView)
     : RecyclerView.ViewHolder(itemView) {
 
@@ -103,6 +114,16 @@ class MainActivity : AppCompatActivity() {
       set(value) {
         field = value
         textView.setText(value)
+      }
+
+    /**
+     * ID of drawable resource for example icon.
+     */
+    var iconId = 0
+      set(value) {
+        field = value
+        textView.setCompoundDrawablesRelativeWithIntrinsicBounds(value, 0, 0, 0)
+        DrawableCompat.setTint(textView.compoundDrawablesRelative[0], tint)
       }
 
     init {
