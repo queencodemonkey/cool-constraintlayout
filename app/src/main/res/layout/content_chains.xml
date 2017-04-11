@@ -15,7 +15,7 @@
         android:id="@+id/guideline_end"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintGuide_end="@dimen/activity_horizontal_margin"
+        app:layout_constraintGuide_end="@dimen/activity_margin_horizontal"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="395dp"
         tools:layout_editor_absoluteY="0dp" />
@@ -24,7 +24,7 @@
         android:id="@+id/guideline_start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintGuide_begin="@dimen/activity_horizontal_margin"
+        app:layout_constraintGuide_begin="@dimen/activity_margin_horizontal"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="0dp" />
@@ -45,7 +45,7 @@
         style="@style/ChainText.A"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginTop="@dimen/activity_margin_vertical"
         app:layout_constraintLeft_toRightOf="@+id/image_05"
         app:layout_constraintRight_toLeftOf="@+id/guideline_end"
         app:layout_constraintTop_toTopOf="parent"
@@ -354,6 +354,7 @@
 
     <Button
         android:id="@+id/toggle_vertical"
+        style="?android:buttonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/chains_content_margin_top"
@@ -363,6 +364,7 @@
 
     <Button
         android:id="@+id/toggle_d"
+        style="?android:buttonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/button_margin_horizontal"
