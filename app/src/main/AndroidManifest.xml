@@ -31,6 +31,11 @@
             android:name=".ChainsActivity"
             android:label="@string/example_chains_title"
             android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".DynamicConstraintLayoutActivity"
+            android:label="@string/dynamic_constraint_layout_title"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".ConstraintLayoutListItemActivity" />
     </application>
 
 </manifest>
