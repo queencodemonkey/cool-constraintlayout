@@ -35,6 +35,16 @@
 
     <!-- ConstraintSet example -->
     <!-- ===================== -->
+    <string name="example_constraint_set_title">ConstraintSet</string>
+    <string name="lina_name">LINA</string>
+    <string name="lina_skill_dragon_slave">Dragon Slave</string>
+    <string name="lina_skill_light_strike_array">Light Strike Array</string>
+    <string name="lina_skill_fiery_soul">Fiery Soul</string>
+    <string name="lina_skill_laguna_blade">Laguna Blade</string>
+    <string name="lina_int">27 + 3.20</string>
+    <string name="lina_agi">16 + 1.50</string>
+    <string name="lina_str">18 + 1.50</string>
+    <string name="action_swap_constraint_set">Swap</string>
 
     <!-- Dynamic constraint layout example -->
     <!-- ================================= -->

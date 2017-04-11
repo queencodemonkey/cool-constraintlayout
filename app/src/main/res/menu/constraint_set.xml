@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_swap_constraint_set"
+        android:icon="@drawable/ic_swap_horiz_black_24dp"
+        android:title="@string/action_swap_constraint_set"
+        app:showAsAction="always" />
+</menu>

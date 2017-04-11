@@ -1,5 +1,17 @@
 <resources>
 
+    <!-- Text styles -->
+    <!-- =========== -->
+    <style name="TextGothic">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Display3</item>
+        <item name="fontPath">fonts/LeagueGothicRegular.otf</item>
+    </style>
+
+    <style name="TextGothic.Small">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Caption</item>
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+    </style>
+
     <!-- Views -->
     <!-- ===== -->
 
