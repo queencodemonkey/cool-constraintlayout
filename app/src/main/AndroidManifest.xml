@@ -35,7 +35,10 @@
             android:name=".DynamicConstraintLayoutActivity"
             android:label="@string/dynamic_constraint_layout_title"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".ConstraintLayoutListItemActivity" />
+        <activity
+            android:name=".ConstraintSetActivity"
+            android:label="@string/example_constraint_set"
+            android:parentActivityName=".MainActivity" />
     </application>
 
 </manifest>

@@ -9,15 +9,14 @@
     <string name="example_constraint_set">ConstraintSet</string>
     <string name="example_dimension_ratio">Dimension Ratio</string>
     <string name="example_dynamic_constraint_layout">Dynamic ConstraintLayout</string>
-    <string name="example_gone">Gone</string>
     <string name="example_guidelines">Guidelines</string>
 
     <array name="examples">
-        <item>@string/example_alignment</item>
         <item>@string/example_dimension_ratio</item>
+        <item>@string/example_alignment</item>
         <item>@string/example_chains</item>
+        <item>@string/example_constraint_set</item>
         <item>@string/example_dynamic_constraint_layout</item>
-        <!--<item>@string/example_constraint_set</item>-->
         <!--<item>@string/example_guidelines</item>-->
     </array>
 
@@ -25,6 +24,7 @@
         <item>@drawable/ic_format_align_left_black_24dp</item>
         <item>@drawable/ic_image_aspect_ratio_black_24dp</item>
         <item>@drawable/ic_link_black_24dp</item>
+        <item>@drawable/ic_view_list_black_24dp</item>
         <item>@drawable/ic_widgets_black_24dp</item>
     </integer-array>
 
