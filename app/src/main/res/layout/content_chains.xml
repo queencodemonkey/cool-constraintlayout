@@ -162,6 +162,7 @@
         app:layout_constraintRight_toLeftOf="@+id/image_07"
         app:layout_constraintTop_toTopOf="@+id/image_07"
         app:layout_constraintBottom_toBottomOf="@+id/image_07"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintVertical_bias="0.0"
         app:layout_constraintDimensionRatio="1:1"
         android:contentDescription="@null" />
@@ -225,6 +226,8 @@
         app:layout_constraintRight_toLeftOf="@+id/image_12"
         app:layout_constraintTop_toTopOf="@+id/image_12"
         app:layout_constraintBottom_toBottomOf="@+id/image_12"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintDimensionRatio="1:1"
         android:contentDescription="@null" />
 

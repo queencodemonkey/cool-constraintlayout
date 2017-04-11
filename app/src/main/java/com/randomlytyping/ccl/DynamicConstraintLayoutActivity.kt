@@ -41,7 +41,6 @@ class DynamicConstraintLayoutActivity : AppCompatActivity() {
 
   @IdRes private var lastViewId: Int = NO_ID
   @IdRes private var lastRowId: Int = PARENT_ID
-  private var firstRow = true
   private var currentRow: LinkedList<Int> = LinkedList()
 
   // Random images/text to choose
