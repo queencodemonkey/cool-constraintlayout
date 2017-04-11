@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@id/constraint_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="@dimen/chains_content_margin_top"
+    tools:context="com.randomlytyping.ccl.ChainsActivity">
+
+    <!-- Guidelines -->
+    <!-- ========== -->
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_end="@dimen/activity_horizontal_margin"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="395dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_begin="@dimen/activity_horizontal_margin"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_start_inner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_begin="@dimen/content_margin_horizontal"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="72dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <!-- Text labels (vertical chain) -->
+    <!-- ============================ -->
+    <TextView
+        android:id="@+id/text_01"
+        style="@style/ChainText.A"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        app:layout_constraintLeft_toRightOf="@+id/image_05"
+        app:layout_constraintRight_toLeftOf="@+id/guideline_end"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/text_02"
+        android:contentDescription="@null"
+        android:text="@string/chains_text_a" />
+
+    <TextView
+        android:id="@+id/text_02"
+        style="@style/ChainText.B"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@+id/image_10"
+        app:layout_constraintRight_toLeftOf="@+id/guideline_end"
+        app:layout_constraintTop_toBottomOf="@+id/text_01"
+        app:layout_constraintBottom_toTopOf="@+id/text_03"
+        android:contentDescription="@null"
+        android:text="@string/chains_text_b" />
+
+    <TextView
+        android:id="@+id/text_03"
+        style="@style/ChainText.C"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@+id/image_15"
+        app:layout_constraintRight_toLeftOf="@+id/guideline_end"
+        app:layout_constraintTop_toBottomOf="@+id/text_02"
+        app:layout_constraintBottom_toTopOf="@+id/text_04"
+        android:contentDescription="@null"
+        android:text="@string/chains_text_c" />
+
+    <TextView
+        android:id="@+id/text_04"
+        style="@style/ChainText.D"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@+id/guideline_start"
+        app:layout_constraintRight_toLeftOf="@+id/image_16"
+        app:layout_constraintTop_toBottomOf="@+id/text_03"
+        app:layout_constraintBottom_toTopOf="@+id/divider"
+        android:contentDescription="@null"
+        android:text="@string/chains_text_d" />
+
+    <!-- Image chain A -->
+    <!-- ============= -->
+    <ImageView
+        android:id="@+id/image_01"
+        style="@style/ChainImage.A"
+        android:layout_width="@dimen/chains_image_size"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toLeftOf="@+id/guideline_start"
+        app:layout_constraintRight_toLeftOf="@+id/image_02"
+        app:layout_constraintTop_toTopOf="@+id/image_02"
+        app:layout_constraintBottom_toBottomOf="@+id/image_02"
+        app:layout_constraintDimensionRatio="1:1"
+        android:contentDescription="@null" />
+
+    <ImageView
+        android:id="@+id/image_02"
+        style="@style/ChainImage.A"
+        android:layout_width="@dimen/chains_image_size"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toRightOf="@+id/image_01"
+        app:layout_constraintRight_toLeftOf="@+id/image_03"
+        app:layout_constraintTop_toTopOf="@+id/image_03"
+        app:layout_constraintBottom_toBottomOf="@+id/image_03"
+        app:layout_constraintDimensionRatio="1:1"
+        android:contentDescription="@null" />
+
+    <ImageView
+        android:id="@+id/image_03"
+        style="@style/ChainImage.A"
+        android:layout_width="@dimen/chains_image_size"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toRightOf="@+id/image_02"
+        app:layout_constraintRight_toLeftOf="@+id/image_04"
+        app:layout_constraintTop_toTopOf="@+id/image_04"
+        app:layout_constraintBottom_toBottomOf="@+id/image_04"
+        app:layout_constraintDimensionRatio="1:1"
+        android:contentDescription="@null" />
+
+    <ImageView
+        android:id="@+id/image_04"
+        style="@style/ChainImage.A"
+        android:layout_width="@dimen/chains_image_size"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toRightOf="@+id/image_03"
+        app:layout_constraintRight_toLeftOf="@+id/image_05"
+        app:layout_constraintTop_toTopOf="@+id/image_05"
+        app:layout_constraintBottom_toBottomOf="@+id/image_05"
+        app:layout_constraintDimensionRatio="1:1"
+        android:contentDescription="@null" />
+
+    <ImageView
+        android:id="@+id/image_05"
+        style="@style/ChainImage.A"
+        android:layout_width="@dimen/chains_image_size"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toRightOf="@+id/image_04"
+        app:layout_constraintRight_toLeftOf="@+id/text_01"
+        app:layout_constraintTop_toTopOf="@+id/text_01"
+        app:layout_constraintBottom_toBottomOf="@+id/text_01"
+        app:layout_constraintDimensionRatio="1:1"
+        android:contentDescription="@null" />
+
+    <!-- Image chain B -->
+    <!-- ============= -->
+    <ImageView
+        android:id="@+id/image_06"
+        style="@style/ChainImage.B"
+        android:layout_width="@dimen/chains_image_size"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toLeftOf="@+id/guideline_start"
+        app:layout_constraintRight_toLeftOf="@+id/image_07"
+        app:layout_constraintTop_toTopOf="@+id/image_07"
+        app:layout_constraintBottom_toBottomOf="@+id/image_07"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintDimensionRatio="1:1"
+        android:contentDescription="@null" />
+
+    <ImageView
+        android:id="@+id/image_07"
+        style="@style/ChainImage.B"
+        android:layout_width="@dimen/chains_image_size"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toRightOf="@+id/image_06"
+        app:layout_constraintRight_toLeftOf="@+id/image_08"
+        app:layout_constraintTop_toTopOf="@+id/image_08"
+        app:layout_constraintBottom_toBottomOf="@+id/image_08"
+        app:layout_constraintDimensionRatio="1:1"
+        android:contentDescription="@null" />
+
+    <ImageView
+        android:id="@+id/image_08"
+        style="@style/ChainImage.B"
+        android:layout_width="@dimen/chains_image_size"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toRightOf="@+id/image_07"
+        app:layout_constraintRight_toLeftOf="@+id/image_09"
+        app:layout_constraintTop_toTopOf="@+id/image_09"
+        app:layout_constraintBottom_toBottomOf="@+id/image_09"
+        app:layout_constraintDimensionRatio="1:1"
+        android:contentDescription="@null" />
+
+    <ImageView
+        android:id="@+id/image_09"
+        style="@style/ChainImage.B"
+        android:layout_width="@dimen/chains_image_size"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toRightOf="@+id/image_08"
+        app:layout_constraintRight_toLeftOf="@+id/image_10"
+        app:layout_constraintTop_toTopOf="@+id/image_10"
+        app:layout_constraintBottom_toBottomOf="@+id/image_10"
+        app:layout_constraintDimensionRatio="1:1"
+        android:contentDescription="@null" />
+
+    <ImageView
+        android:id="@+id/image_10"
+        style="@style/ChainImage.B"
+        android:layout_width="@dimen/chains_image_size"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toRightOf="@+id/image_09"
+        app:layout_constraintRight_toLeftOf="@+id/text_02"
+        app:layout_constraintTop_toTopOf="@+id/text_02"
+        app:layout_constraintBottom_toBottomOf="@+id/text_02"
+        app:layout_constraintDimensionRatio="1:1"
+        android:contentDescription="@null" />
+
+    <!-- Image chain C -->
+    <!-- ============= -->
+    <ImageView
+        android:id="@+id/image_11"
+        style="@style/ChainImage.C"
+        android:layout_width="@dimen/chains_image_size"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toLeftOf="@+id/guideline_start_inner"
+        app:layout_constraintRight_toLeftOf="@+id/image_12"
+        app:layout_constraintTop_toTopOf="@+id/image_12"
+        app:layout_constraintBottom_toBottomOf="@+id/image_12"
+        app:layout_constraintDimensionRatio="1:1"
+        android:contentDescription="@null" />
+
+    <ImageView
+        android:id="@+id/image_12"
+        style="@style/ChainImage.C"
+        android:layout_width="@dimen/chains_image_size"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toRightOf="@+id/image_11"
+        app:layout_constraintRight_toLeftOf="@+id/image_13"
+        app:layout_constraintTop_toTopOf="@+id/image_13"
+        app:layout_constraintBottom_toBottomOf="@+id/image_13"
+        app:layout_constraintDimensionRatio="1:1"
+        android:contentDescription="@null" />
+
+    <ImageView
+        android:id="@+id/image_13"
+        style="@style/ChainImage.C"
+        android:layout_width="@dimen/chains_image_size"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toRightOf="@+id/image_12"
+        app:layout_constraintRight_toLeftOf="@+id/image_14"
+        app:layout_constraintTop_toTopOf="@+id/image_14"
+        app:layout_constraintBottom_toBottomOf="@+id/image_14"
+        app:layout_constraintDimensionRatio="1:1"
+        android:contentDescription="@null" />
+
+    <ImageView
+        android:id="@+id/image_14"
+        style="@style/ChainImage.C"
+        android:layout_width="@dimen/chains_image_size"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toRightOf="@+id/image_13"
+        app:layout_constraintRight_toLeftOf="@+id/image_15"
+        app:layout_constraintTop_toTopOf="@+id/image_15"
+        app:layout_constraintBottom_toBottomOf="@+id/image_15"
+        app:layout_constraintDimensionRatio="1:1"
+        android:contentDescription="@null" />
+
+    <ImageView
+        android:id="@+id/image_15"
+        style="@style/ChainImage.C"
+        android:layout_width="@dimen/chains_image_size"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toRightOf="@+id/image_14"
+        app:layout_constraintRight_toLeftOf="@+id/text_03"
+        app:layout_constraintTop_toTopOf="@+id/text_03"
+        app:layout_constraintBottom_toBottomOf="@+id/text_03"
+        app:layout_constraintDimensionRatio="1:1"
+        android:contentDescription="@null" />
+
+    <!-- Image chain D -->
+    <!-- ============= -->
+    <ImageView
+        android:id="@+id/image_16"
+        style="@style/ChainImage.D"
+        android:layout_width="@dimen/chains_image_size"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toRightOf="@+id/text_04"
+        app:layout_constraintRight_toLeftOf="@+id/image_17"
+        app:layout_constraintTop_toTopOf="@+id/text_04"
+        app:layout_constraintBottom_toTopOf="@+id/divider"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        android:contentDescription="@null" />
+
+    <ImageView
+        android:id="@+id/image_17"
+        style="@style/ChainImage.D"
+        android:layout_width="@dimen/chains_image_size"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toRightOf="@+id/image_16"
+        app:layout_constraintRight_toLeftOf="@+id/image_18"
+        app:layout_constraintTop_toTopOf="@+id/text_04"
+        app:layout_constraintBottom_toTopOf="@+id/divider"
+        app:layout_constraintDimensionRatio="1:1"
+        android:contentDescription="@null" />
+
+    <ImageView
+        android:id="@+id/image_18"
+        style="@style/ChainImage.D"
+        android:layout_width="@dimen/chains_image_size"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toRightOf="@+id/image_17"
+        app:layout_constraintRight_toLeftOf="@+id/image_19"
+        app:layout_constraintTop_toTopOf="@+id/text_04"
+        app:layout_constraintBottom_toTopOf="@+id/divider"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintDimensionRatio="1:1"
+        android:contentDescription="@null" />
+
+    <ImageView
+        android:id="@+id/image_19"
+        style="@style/ChainImage.D"
+        android:layout_width="@dimen/chains_image_size"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toRightOf="@+id/image_18"
+        app:layout_constraintRight_toLeftOf="@+id/image_20"
+        app:layout_constraintTop_toTopOf="@+id/text_04"
+        app:layout_constraintBottom_toTopOf="@+id/divider"
+        app:layout_constraintDimensionRatio="1:1"
+        android:contentDescription="@null" />
+
+    <ImageView
+        android:id="@+id/image_20"
+        style="@style/ChainImage.D"
+        android:layout_width="@dimen/chains_image_size"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toRightOf="@+id/image_19"
+        app:layout_constraintRight_toLeftOf="@+id/guideline_end"
+        app:layout_constraintTop_toTopOf="@+id/text_04"
+        app:layout_constraintBottom_toTopOf="@+id/divider"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintDimensionRatio="1:1"
+        android:contentDescription="@null" />
+
+    <View
+        android:id="@+id/divider"
+        style="@style/Divider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginBottom="@dimen/chains_divider_margin_bottom"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <Button
+        android:id="@+id/toggle_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/chains_content_margin_top"
+        app:layout_constraintLeft_toLeftOf="@+id/guideline_start"
+        app:layout_constraintTop_toTopOf="@+id/divider"
+        android:text="@string/chains_vertical_toggle" />
+
+    <Button
+        android:id="@+id/toggle_d"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/button_margin_horizontal"
+        app:layout_constraintLeft_toRightOf="@+id/toggle_vertical"
+        app:layout_constraintBaseline_toBaselineOf="@+id/toggle_vertical"
+        android:text="@string/chains_d_toggle" />
+
+</android.support.constraint.ConstraintLayout>

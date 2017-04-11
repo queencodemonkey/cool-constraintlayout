@@ -18,35 +18,52 @@
     <array name="examples">
         <item>@string/example_alignment</item>
         <item>@string/example_dimension_ratio</item>
-        <!--<item>@string/example_chains</item>-->
+        <item>@string/example_chains</item>
         <!--<item>@string/example_constraint_set</item>-->
         <!--<item>@string/example_dynamic_constraint_set</item>-->
         <!--<item>@string/example_guidelines</item>-->
     </array>
 
-    <!-- Alignment Example -->
+    <!-- Alignment example -->
     <!-- ================= -->
     <string name="example_alignment_title">Easier Alignment</string>
     <string name="ratio_group_title">Image Ratio</string>
     <string name="resize_constraint_group_title">Resize + Center Constraint</string>
     <string name="resize_manual_group_title">Resize + Center Manual</string>
 
-    <!-- Dimension Ratio Example -->
+    <!-- Dimension ratio example -->
     <!-- ======================= -->
     <string name="example_dimension_ratio_title">Dimension Ratio</string>
     <string name="square_image_view">SquareImageView</string>
 
-    <!-- Dimension Ratios -->
+    <!-- Dimension ratios -->
     <string name="ratio_1_1">1:1</string>
     <string name="ratio_16_10">16:10</string>
     <string name="ratio_16_9">16:9</string>
     <string name="ratio_4_3">4:3</string>
     <string name="ratio_3_1">3:1</string>
 
-    <!-- ConstraintSet Example -->
+    <!-- Chains example -->
+    <!-- ===================== -->
+    <string name="example_chains_title">Chains, Chains, Chains…</string>
+    <string name="chains_text_a">Alpha</string>
+    <string name="chains_text_b">Beta</string>
+    <string name="chains_text_c">Gamma</string>
+    <string name="chains_text_d">Delta</string>
+    <string name="chains_vertical_toggle">Toggle Vertical</string>
+    <string name="chains_d_toggle">Toggle D</string>
+
+    <!-- ConstraintSet example -->
     <!-- ===================== -->
 
-    <!-- List Items -->
+    <!-- Dynamic constraint layout example -->
+    <!-- ================================= -->
+
+    <string name="dynamic_constraint_layout_title">(Dynamically) Build Your Own ConstraintLayout</string>
+    <string name="dynamic_button_add_image">Add Image</string>
+    <string name="dynamic_button_add_text">Add Text</string>
+
+    <!-- List items -->
     <!-- ========== -->
     <string name="content_description_image_thumbnail">image thumbnail</string>
 

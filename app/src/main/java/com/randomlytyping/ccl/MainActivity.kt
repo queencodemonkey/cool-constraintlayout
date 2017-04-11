@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
     startActivity(Intent(this, when (exampleResId) {
       R.string.example_alignment -> AlignmentActivity::class.java
       R.string.example_dimension_ratio -> DimensionRatioActivity::class.java
-    //        R.string.example_chains -> ChainsActivity::class.java
+      R.string.example_chains -> ChainsActivity::class.java
     //        R.string.example_constraint_set -> ConstraintSetActivity::class.java
       else -> throw IllegalArgumentException("Invalid item: $exampleResId")
     }))
@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
    * RecyclerView adapter
    */
   private inner class ExampleListAdapter(val context: Context,
-                           val inflater: LayoutInflater = LayoutInflater.from(context))
+                                         val inflater: LayoutInflater = LayoutInflater.from(context))
     : RecyclerView.Adapter<ExampleViewHolder>() {
 
     /**

@@ -13,6 +13,7 @@ import android.widget.*
 import butterknife.BindView
 import butterknife.ButterKnife
 import com.randomlytyping.ccl.util.inflateInto
+import com.randomlytyping.ccl.util.setUpAppBar
 import rt.randamu.tintBackground
 import timber.log.Timber
 
@@ -60,14 +61,9 @@ class AlignmentActivity : AppCompatActivity() {
     // Inflate content and bind views.
     ButterKnife.bind(this, inflateInto<ScrollView>(R.id.scroll_view, R.layout.content_alignment))
 
-    // Set up app bar.
-    setSupportActionBar(ButterKnife.findById<Toolbar>(this, R.id.app_bar))
-    supportActionBar?.also {
-      it.setDisplayShowHomeEnabled(true)
-      it.setDisplayHomeAsUpEnabled(true)
-    }
+    setUpAppBar()
 
-    // Initialize constraint set
+    // Initialize constraint set.
     constraintSet.clone(constraintLayout)
 
     // Set up anchors
@@ -114,7 +110,7 @@ class AlignmentActivity : AppCompatActivity() {
     frameAnchorStart.tintBackground(colorAccent)
     frameAnchorEnd.tintBackground(colorAccent)
 
-    anchorMarginHorizontal = resources.getDimensionPixelSize(R.dimen.alignment_content_margin_horizontal)
+    anchorMarginHorizontal = resources.getDimensionPixelSize(R.dimen.content_margin_horizontal)
     anchorMarginVertical = resources.getDimensionPixelSize(R.dimen.alignment_rectangle_margin_vertical)
 
     updateManualAnchors()
@@ -152,7 +148,7 @@ class AlignmentActivity : AppCompatActivity() {
   private fun toDimensionRatio(@IdRes radioButtonId: Int) = getString(when (radioButtonId) {
     R.id.ratio_01 -> R.string.ratio_3_1
     R.id.ratio_02 -> R.string.ratio_16_9
-    R.id.ratio_03 -> R.string.ratio_1_1
+    R.id.ratio_03 -> R.string.ratio_4_3
     else -> R.string.ratio_3_1
   })
 
