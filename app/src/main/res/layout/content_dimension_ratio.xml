@@ -2,7 +2,6 @@
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@id/constraint_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -24,8 +23,7 @@
         android:layout_height="@dimen/dimension_ratio_square_image_size"
         app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/unsplash_neven_krcmarek_grapes"
-        tools:layout_editor_absoluteX="72dp" />
+        android:src="@drawable/unsplash_neven_krcmarek_grapes" />
 
     <View
         android:id="@+id/divider_01"
