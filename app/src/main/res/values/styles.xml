@@ -63,7 +63,7 @@
 
     <!-- Chains example -->
     <style name="ChainText">
-        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Subhead</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Title</item>
         <item name="android:textAllCaps">true</item>
         <item name="fontPath">fonts/LeagueGothicRegular.otf</item>
 

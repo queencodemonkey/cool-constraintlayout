@@ -31,6 +31,9 @@
     <!-- Avatar/icons -->
     <dimen name="avatar_size">40dp</dimen>
 
+    <!-- Buttons -->
+    <dimen name="button_margin_horizontal">8dp</dimen>
+
     <!-- List margins/sizes -->
     <dimen name="subheader_height">48dp</dimen>
 
@@ -63,9 +66,11 @@
     <dimen name="alignment_seek_bar_margin_horizontal">56dp</dimen>
 
     <!-- Chains example -->
+    <dimen name="chains_content_margin_top">16dp</dimen>
     <dimen name="chains_image_size">40dp</dimen>
     <dimen name="chains_image_padding">8dp</dimen>
     <dimen name="chains_text_padding_horizontal">8dp</dimen>
+    <dimen name="chains_divider_margin_bottom">120dp</dimen>
 
     <!-- Dimension ratio example -->
     <dimen name="dimension_ratio_square_image_size">88dp</dimen>

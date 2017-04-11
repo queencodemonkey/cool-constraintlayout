@@ -45,11 +45,13 @@
 
     <!-- Chains Example -->
     <!-- ===================== -->
-
+    <string name="example_chains_title">Chains, Chains, Chains…</string>
     <string name="chains_text_a">Alpha</string>
     <string name="chains_text_b">Beta</string>
     <string name="chains_text_c">Gamma</string>
     <string name="chains_text_d">Delta</string>
+    <string name="chains_vertical_toggle">Toggle Vertical</string>
+    <string name="chains_d_toggle">Toggle D</string>
 
     <!-- ConstraintSet Example -->
     <!-- ===================== -->
