@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/anchors"
+        android:layout_width="120dp"
+        android:layout_height="48dp"
+        android:text="Button"
+        tools:layout_editor_absoluteX="72dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <Button
+        android:id="@+id/edge"
+        android:layout_width="120dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="72dp"
+        android:layout_marginStart="72dp"
+        android:text="Edge"
+        app:layout_constraintLeft_toLeftOf="parent"
+        tools:layout_editor_absoluteY="80dp" />
+
+    <Button
+        android:id="@+id/center"
+        android:layout_width="120dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:text="Center"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_editor_absoluteY="96dp"
+        app:layout_constraintHorizontal_bias="0.498" />
+
+    <Button
+        android:id="@+id/baseline1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Baseline"
+        app:layout_constraintBaseline_toBaselineOf="@+id/baseline2"
+        tools:layout_editor_absoluteX="88dp" />
+
+    <Button
+        android:id="@+id/baseline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Baseline"
+        tools:layout_editor_absoluteX="246dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <Button
+        android:id="@+id/fixed"
+        android:layout_width="120dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:text="Fixed"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_editor_absoluteY="248dp"
+        app:layout_constraintHorizontal_bias="0.498" />
+
+    <Button
+        android:id="@+id/wrapcontent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:text="WRAP"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_editor_absoluteY="331dp"
+        app:layout_constraintHorizontal_bias="0.498" />
+
+    <Button
+        android:id="@+id/matchconstraints"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:text="MATCH_CONSTRAINTS"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_editor_absoluteY="402dp" />
+
+    <Button
+        android:id="@+id/ratio"
+        android:layout_width="88dp"
+        android:layout_height="0dp"
+        android:text="RATIO"
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="470dp"
+        app:layout_constraintDimensionRatio="h,1:1" />
+
+</android.support.constraint.ConstraintLayout>

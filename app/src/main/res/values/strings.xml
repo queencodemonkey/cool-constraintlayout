@@ -4,6 +4,12 @@
     <!-- Common -->
     <string name="action_settings">Settings</string>
 
+    <!-- Cheat sheet -->
+    <string name="button">Button</string>
+    <string name="constraint_edge">Edge</string>
+    <string name="constraint_center">Edge</string>
+    <string name="constraint_baseline">Baseline</string>
+
     <!-- Alignment example -->
     <!-- ================= -->
     <string name="example_alignment_title">Easier Alignment</string>

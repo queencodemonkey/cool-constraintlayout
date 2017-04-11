@@ -47,6 +47,10 @@
     <dimen name="list_tile_text_margin_end">16dp</dimen>
     <dimen name="list_tile_icon_end_margin_end">@dimen/activity_margin_horizontal</dimen>
 
+    <!-- Cheat sheet -->
+    <dimen name="cheat_sheet_button_width">120dp</dimen>
+    <dimen name="cheat_sheet_button_height">48dp</dimen>
+
     <!-- Examples -->
     <!-- ======== -->
 

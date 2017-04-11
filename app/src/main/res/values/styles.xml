@@ -14,7 +14,6 @@
 
     <!-- Views -->
     <!-- ===== -->
-
     <style name="Divider">
         <item name="android:background">@color/divider_light</item>
     </style>
@@ -56,6 +55,9 @@
         <item name="android:textAppearance">@style/TextAppearance.AppCompat.Display4</item>
         <item name="fontPath">fonts/LeagueGothicRegular.otf</item>
     </style>
+
+    <!-- Cheat sheet -->
+    <style name="Button" parent="Widget.AppCompat.Button" />
 
     <!-- Example styles -->
     <!-- ============== -->
