@@ -13,6 +13,7 @@ import android.widget.*
 import butterknife.BindView
 import butterknife.ButterKnife
 import com.randomlytyping.ccl.util.inflateInto
+import com.randomlytyping.ccl.util.setUpAppBar
 import rt.randamu.tintBackground
 import timber.log.Timber
 
@@ -60,12 +61,7 @@ class AlignmentActivity : AppCompatActivity() {
     // Inflate content and bind views.
     ButterKnife.bind(this, inflateInto<ScrollView>(R.id.scroll_view, R.layout.content_alignment))
 
-    // Set up app bar.
-    setSupportActionBar(ButterKnife.findById<Toolbar>(this, R.id.app_bar))
-    supportActionBar?.also {
-      it.setDisplayShowHomeEnabled(true)
-      it.setDisplayHomeAsUpEnabled(true)
-    }
+    setUpAppBar()
 
     // Initialize constraint set.
     constraintSet.clone(constraintLayout)
