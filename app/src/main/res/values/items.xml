@@ -10,6 +10,9 @@
         <item>@drawable/unsplash_nousnou_iwasaki_coffee_beans</item>
         <item>@drawable/unsplash_mike_kenneally_green_beans</item>
         <item>@drawable/unsplash_danielle_macinnes_artichokes</item>
+        <item>@drawable/unsplash_roberta_sorge_pineapple</item>
+        <item>@drawable/unsplash_roberta_sorge_pomegranate</item>
+        <item>@drawable/unsplash_maria_fernanda_gonzalez_coffee</item>
     </integer-array>
 
     <integer-array name="unsplash_attributions">
@@ -21,17 +24,23 @@
         <item>@string/unsplash_nousnou_iwasaki</item>
         <item>@string/unsplash_mike_kenneally</item>
         <item>@string/unsplash_danielle_macinnes</item>
+        <item>@string/unsplash_roberta_sorge</item>
+        <item>@string/unsplash_roberta_sorge</item>
+        <item>@string/unsplash_roberta_sorge</item>
     </integer-array>
 
     <string-array name="unsplash_urls">
-        <item>@string/unsplash_url_cory_seward</item>
-        <item>@string/unsplash_url_roberta_sorge</item>
-        <item>@string/unsplash_url_tatiana_lapina</item>
-        <item>@string/unsplash_url_shumilov_ludmila</item>
-        <item>@string/unsplash_url_julia_d_alkmin</item>
-        <item>@string/unsplash_url_nousnou_iwasaki</item>
-        <item>@string/unsplash_url_mike_kenneally</item>
-        <item>@string/unsplash_url_danielle_macinnes</item>
+        <item>@string/unsplash_url_cory_seward_eggs</item>
+        <item>@string/unsplash_url_roberta_sorge_honey</item>
+        <item>@string/unsplash_url_tatiana_lapina_macaroon</item>
+        <item>@string/unsplash_url_shumilov_ludmila_pears</item>
+        <item>@string/unsplash_url_julia_d_alkmin_ice_tea</item>
+        <item>@string/unsplash_url_nousnou_iwasaki_coffee_beans</item>
+        <item>@string/unsplash_url_mike_kenneally_green_beans</item>
+        <item>@string/unsplash_url_danielle_macinnes_artichokes</item>
+        <item>@string/unsplash_url_roberta_sorge_pineapple</item>
+        <item>@string/unsplash_url_roberta_sorge_pomegranate</item>
+        <item>@string/unsplash_url_maria_fernanda_gonzalez_coffee</item>
     </string-array>
 
 </resources>

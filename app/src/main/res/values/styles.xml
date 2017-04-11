@@ -57,7 +57,6 @@
 
     <!-- Dimension ratio example -->
     <style name="DimensionRatioImage">
-        <item name="android:contentDescription">@null</item>
         <item name="android:scaleType">centerCrop</item>
     </style>
 
@@ -109,6 +108,21 @@
     <style name="ChainImage.D">
         <item name="srcCompat">@drawable/ic_android_black_24dp</item>
         <item name="android:background">@color/android_green</item>
+    </style>
+
+    <!-- Dynamic ConstraintLayout example -->
+    <style name="DynamicImage">
+        <item name="android:background">@android:color/white</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+    <style name="DynamicText">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Subhead</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:background">@color/cyan_a100</item>
+        <item name="android:gravity">center</item>
+        <item name="fontPath">fonts/LeagueGothicRegular.otf</item>
     </style>
 
 </resources>

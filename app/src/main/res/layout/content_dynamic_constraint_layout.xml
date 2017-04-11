@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.randomlytyping.ccl.DynamicConstraintLayoutActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/content_margin_vertical"
+        android:layout_marginStart="@dimen/content_margin_horizontal"
+        android:layout_marginEnd="@dimen/activity_margin_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button_add_image"
+            style="?android:buttonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dynamic_button_add_image" />
+
+        <Button
+            android:id="@+id/button_add_text"
+            style="?android:buttonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/button_margin_horizontal"
+            android:text="@string/dynamic_button_add_text" />
+
+        <Button
+            android:id="@+id/button_clear"
+            style="?android:buttonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/button_margin_horizontal"
+            android:text="@string/dynamic_button_clear" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/divider"
+        style="@style/Divider"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/divider_height"
+        android:layout_marginTop="@dimen/content_margin_vertical" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraint_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</merge>

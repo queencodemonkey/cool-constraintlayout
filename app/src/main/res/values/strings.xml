@@ -11,7 +11,7 @@
     <string name="example_chains">Chains</string>
     <string name="example_constraint_set">ConstraintSet</string>
     <string name="example_dimension_ratio">Dimension Ratio</string>
-    <string name="example_dynamic_constraint_set">Dynamic ConstraintSet</string>
+    <string name="example_dynamic_constraint_layout">Dynamic ConstraintLayout</string>
     <string name="example_gone">Gone</string>
     <string name="example_guidelines">Guidelines</string>
 
@@ -19,8 +19,8 @@
         <item>@string/example_alignment</item>
         <item>@string/example_dimension_ratio</item>
         <item>@string/example_chains</item>
+        <item>@string/example_dynamic_constraint_layout</item>
         <!--<item>@string/example_constraint_set</item>-->
-        <!--<item>@string/example_dynamic_constraint_set</item>-->
         <!--<item>@string/example_guidelines</item>-->
     </array>
 
@@ -59,9 +59,10 @@
     <!-- Dynamic constraint layout example -->
     <!-- ================================= -->
 
-    <string name="dynamic_constraint_layout_title">(Dynamically) Build Your Own ConstraintLayout</string>
+    <string name="dynamic_constraint_layout_title">Build Your Own from Scratch</string>
     <string name="dynamic_button_add_image">Add Image</string>
     <string name="dynamic_button_add_text">Add Text</string>
+    <string name="dynamic_button_clear">Clear</string>
 
     <!-- List items -->
     <!-- ========== -->
@@ -75,14 +76,29 @@
     <string name="unsplash_nousnou_iwasaki">Nousnou Iwasaki</string>
     <string name="unsplash_mike_kenneally">Mike Kenneally</string>
     <string name="unsplash_danielle_macinnes">Danielle MacInnes</string>
+    <string name="unsplash_maria_fernanda_gonzalez">Maria Fernanda Gonzalez</string>
 
-    <string name="unsplash_url_cory_seward">https://unsplash.com/photos/svazqK-ShNk</string>
-    <string name="unsplash_url_roberta_sorge">https://unsplash.com/photos/kp9UVn-PUac</string>
-    <string name="unsplash_url_tatiana_lapina">https://unsplash.com/photos/qpf2glK0bAA</string>
-    <string name="unsplash_url_shumilov_ludmila">https://unsplash.com/photos/j7X_hySaUa4</string>
-    <string name="unsplash_url_julia_d_alkmin">https://unsplash.com/photos/WKCjwrtjhVg</string>
-    <string name="unsplash_url_nousnou_iwasaki">https://unsplash.com/photos/myPzH34VYK4</string>
-    <string name="unsplash_url_mike_kenneally">https://unsplash.com/photos/8eJPcAuqIhY</string>
-    <string name="unsplash_url_danielle_macinnes">https://unsplash.com/photos/yOT5d1PqLGY</string>
+    <string name="unsplash_url_cory_seward_eggs">https://unsplash.com/photos/svazqK-ShNk</string>
+    <string name="unsplash_url_roberta_sorge_honey">https://unsplash.com/photos/kp9UVn-PUac</string>
+    <string name="unsplash_url_tatiana_lapina_macaroon">https://unsplash.com/photos/qpf2glK0bAA</string>
+    <string name="unsplash_url_shumilov_ludmila_pears">https://unsplash.com/photos/j7X_hySaUa4</string>
+    <string name="unsplash_url_julia_d_alkmin_ice_tea">https://unsplash.com/photos/WKCjwrtjhVg</string>
+    <string name="unsplash_url_nousnou_iwasaki_coffee_beans">https://unsplash.com/photos/myPzH34VYK4</string>
+    <string name="unsplash_url_mike_kenneally_green_beans">https://unsplash.com/photos/8eJPcAuqIhY</string>
+    <string name="unsplash_url_danielle_macinnes_artichokes">https://unsplash.com/photos/yOT5d1PqLGY</string>
+    <string name="unsplash_url_roberta_sorge_pineapple">https://unsplash.com/photos/Q3jYvjW4NDk</string>
+    <string name="unsplash_url_roberta_sorge_pomegranate">https://unsplash.com/photos/hA14zG3R4fk</string>
+    <string name="unsplash_url_maria_fernanda_gonzalez_coffee">https://unsplash.com/photos/kWVXCmyB9so</string>
+
+    <string-array name="random_words">
+        <item name="random_word_01">Archipeligo</item>
+        <item name="random_word_02">Boa</item>
+        <item name="random_word_03">Charismatic</item>
+        <item name="random_word_04">Decibel</item>
+        <item name="random_word_05">Effervescent</item>
+        <item name="random_word_06">Flare</item>
+        <item name="random_word_07">Ginger</item>
+        <item name="random_word_08">Harlequinn</item>
+    </string-array>
 
 </resources>
