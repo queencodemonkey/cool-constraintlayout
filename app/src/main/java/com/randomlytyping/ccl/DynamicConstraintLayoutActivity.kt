@@ -17,6 +17,7 @@ import butterknife.ButterKnife
 import butterknife.OnClick
 import com.randomlytyping.ccl.util.inflateInto
 import com.randomlytyping.ccl.util.setUpAppBar
+import rt.randamu.getResourceIdArray
 import java.util.*
 
 /**
@@ -70,11 +71,9 @@ class DynamicConstraintLayoutActivity : AppCompatActivity() {
     inflater = LayoutInflater.from(this)
     rowHeight = resources.getDimensionPixelSize(R.dimen.dynamic_row_height)
 
-    // Initialize data.
+    // Initialize data…
     // Get random images.
-    val typedArray = resources.obtainTypedArray(R.array.unsplash_images)
-    images = (0..typedArray.length() - 1).map { i -> typedArray.getResourceId(i, -1) }
-    typedArray.recycle()
+    images = resources.getResourceIdArray(R.array.unsplash_images)
     // Get random strings.
     strings = resources.getStringArray(R.array.random_words).toList()
   }
