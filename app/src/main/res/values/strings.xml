@@ -18,7 +18,7 @@
     <array name="examples">
         <item>@string/example_alignment</item>
         <item>@string/example_dimension_ratio</item>
-        <!--<item>@string/example_chains</item>-->
+        <item>@string/example_chains</item>
         <!--<item>@string/example_constraint_set</item>-->
         <!--<item>@string/example_dynamic_constraint_set</item>-->
         <!--<item>@string/example_guidelines</item>-->
