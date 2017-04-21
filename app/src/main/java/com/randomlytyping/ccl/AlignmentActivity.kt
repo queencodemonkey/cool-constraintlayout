@@ -6,7 +6,6 @@ import android.support.constraint.ConstraintLayout
 import android.support.constraint.ConstraintSet
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.Toolbar
 import android.transition.TransitionManager
 import android.view.View
 import android.widget.*
@@ -119,7 +118,6 @@ class AlignmentActivity : AppCompatActivity() {
   //endregion
 
   //region // ConstraintSet updating
-
 
   private fun update(transition: Boolean = false) {
     if (transition) {
