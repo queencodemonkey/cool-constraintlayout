@@ -7,17 +7,17 @@
     <string name="example_alignment">Alignment</string>
     <string name="example_chains">Chains</string>
     <string name="example_constraint_set">ConstraintSet</string>
-    <string name="example_constraint_layout_list_item">ConstraintLayout List Item</string>
     <string name="example_dimension_ratio">Dimension Ratio</string>
     <string name="example_dynamic_constraint_layout">Dynamic ConstraintLayout</string>
     <string name="example_guidelines">Guidelines</string>
+    <string name="example_list_item">ConstraintLayout List Item</string>
 
     <array name="examples">
         <item>@string/example_dimension_ratio</item>
         <item>@string/example_alignment</item>
         <item>@string/example_chains</item>
         <item>@string/example_constraint_set</item>
-        <item>@string/example_constraint_layout_list_item</item>
+        <item>@string/example_list_item</item>
         <item>@string/example_dynamic_constraint_layout</item>
     </array>
 

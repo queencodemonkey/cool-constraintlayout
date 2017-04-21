@@ -24,7 +24,7 @@ import com.randomlytyping.ccl.util.inflateInto
 import com.randomlytyping.ccl.util.setUpAppBar
 import rt.randamu.getResourceIdArray
 
-class ConstraintLayoutListItemActivity : AppCompatActivity() {
+class ListItemActivity : AppCompatActivity() {
 
   //region // Fields
 

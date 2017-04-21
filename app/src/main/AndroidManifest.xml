@@ -40,9 +40,9 @@
             android:label="@string/example_constraint_set"
             android:parentActivityName=".MainActivity" />
         <activity
-            android:name=".ConstraintLayoutListItemActivity"
-            android:label="@string/example_constraint_layout_list_item"
-            android:parentActivityName=".ConstraintLayoutListItemActivity" />
+            android:name=".ListItemActivity"
+            android:label="@string/example_list_item"
+            android:parentActivityName=".ListItemActivity" />
     </application>
 
 </manifest>
