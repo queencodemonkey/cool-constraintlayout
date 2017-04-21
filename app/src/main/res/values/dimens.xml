@@ -18,7 +18,7 @@
     <dimen name="elevation_content">4dp</dimen>
 
     <!-- Dimension ratios -->
-    <string name="dimension_ratio_home_hero">H, 16:10</string>
+    <string name="dimension_ratio_home_hero">H,16:10</string>
 
     <!-- Common components -->
     <!-- ================= -->
@@ -87,7 +87,5 @@
 
     <!-- Dynamic ConstraintLayout example -->
     <dimen name="dynamic_row_height">80dp</dimen>
-
-    <!-- Match constraint wrap example -->
 
 </resources>
