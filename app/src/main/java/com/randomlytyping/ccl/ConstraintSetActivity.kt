@@ -31,7 +31,6 @@ class ConstraintSetActivity : AppCompatActivity() {
 
   private var original: Boolean = true
 
-  //////////////////////////////////////////////////////////////////////////
   //region // Activity lifecycle
 
   override fun attachBaseContext(newBase: Context?) {
@@ -54,7 +53,6 @@ class ConstraintSetActivity : AppCompatActivity() {
 
   // endregion
 
-  //////////////////////////////////////////////////////////////////////////
   //region // Action item handling
 
   override fun onCreateOptionsMenu(menu: Menu): Boolean {
