@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 ext.versions = [
-        buildtools      : "26.0.0",
+        buildtools      : "25.0.2",
         butterknife     : "8.5.1",
         support         : "25.3.1",
         calligraphy     : "2.2.0",
@@ -18,7 +18,7 @@ def versionBuild = 0
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    buildToolsVersion "${versions.buildtools}"
     defaultConfig {
         applicationId "com.randomlytyping.ccl"
         minSdkVersion 19
@@ -39,9 +39,7 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
+
     // Android
     compile "com.android.support:support-v4:${versions.support}"
     compile "com.android.support:appcompat-v7:${versions.support}"
@@ -66,8 +64,10 @@ dependencies {
     compile "com.jakewharton.timber:timber:${versions.timber}"
 
     // Testing
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
 }
 repositories {
     mavenCentral()
