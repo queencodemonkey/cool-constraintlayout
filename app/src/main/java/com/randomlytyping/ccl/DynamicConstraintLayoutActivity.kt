@@ -1,5 +1,6 @@
 package com.randomlytyping.ccl
 
+import android.content.Context
 import android.os.Bundle
 import android.support.annotation.IdRes
 import android.support.constraint.ConstraintLayout
@@ -18,6 +19,7 @@ import butterknife.OnClick
 import com.randomlytyping.ccl.util.inflateInto
 import com.randomlytyping.ccl.util.setUpAppBar
 import rt.randamu.getResourceIdArray
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 import java.util.*
 
 /**
@@ -75,6 +77,14 @@ class DynamicConstraintLayoutActivity : AppCompatActivity() {
     images = resources.getResourceIdArray(R.array.unsplash_images)
     // Get random strings.
     strings = resources.getStringArray(R.array.random_words).toList()
+  }
+
+  //endregion
+
+  //region // Calligraphy bootstrapping
+
+  override fun attachBaseContext(newBase: Context) {
+    super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase))
   }
 
   //endregion
