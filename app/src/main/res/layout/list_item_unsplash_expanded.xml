@@ -2,43 +2,51 @@
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="@dimen/list_tile_min_height_avatar_text">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent="0.5"
+        android:orientation="vertical" />
 
     <ImageView
         android:id="@+id/image"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="@dimen/list_tile_avatar_margin_start"
-        android:layout_marginTop="@dimen/list_tile_avatar_margin_vertical"
-        android:layout_marginBottom="@dimen/list_tile_avatar_margin_vertical"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        app:layout_constraintDimensionRatio="W,1:1"
         android:contentDescription="@string/content_description_image_thumbnail"
-        android:scaleType="centerCrop" />
+        tools:layout_editor_absoluteX="32dp" />
 
     <TextView
         android:id="@+id/attribution"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/list_tile_text_margin_start"
-        android:layout_marginTop="@dimen/list_tile_text_margin_vertical"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="@dimen/list_tile_text_margin_vertical"
+        android:layout_marginEnd="@dimen/list_tile_text_margin_end"
+        app:layout_constraintStart_toStartOf="@id/center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        style="@style/ListItemText.Attribution" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        style="@style/ListItemText.Attribution.Alternate" />
 
     <TextView
         android:id="@+id/url"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/list_tile_text_margin_start"
+        android:layout_marginBottom="@dimen/list_tile_text_margin_vertical"
+        android:layout_marginStart="@dimen/content_margin_horizontal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/attribution"
+        app:layout_constraintEnd_toEndOf="@id/center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:maxLines="1"
+        android:visibility="gone"
         style="@style/ListItemText.Url" />
 
 </android.support.constraint.ConstraintLayout>

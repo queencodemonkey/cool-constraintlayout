@@ -39,6 +39,7 @@
     <dimen name="subheader_height">48dp</dimen>
 
     <!-- List tiles -->
+    <dimen name="list_tile_text_size">16sp</dimen>
     <dimen name="list_tile_min_height_avatar_text">72dp</dimen>
     <dimen name="list_tile_avatar_margin_start">@dimen/activity_margin_horizontal</dimen>
     <dimen name="list_tile_avatar_margin_vertical">16dp</dimen>

@@ -139,4 +139,23 @@
         <item name="fontPath">fonts/LeagueGothicRegular.otf</item>
     </style>
 
+    <!-- List item example -->
+    <style name="ListItemText">
+        <item name="android:maxLines">1</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:textSize">@dimen/list_tile_text_size</item>
+    </style>
+
+    <style name="ListItemText.Attribution">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="ListItemText.Url">
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+    </style>
+
+    <style name="ListItemText.Attribution.Alternate">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
 </resources>
