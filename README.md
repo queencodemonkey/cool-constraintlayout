@@ -3,10 +3,14 @@ Examples from my talk "Cool ConstraintLayout" which gives examples of interestin
 
 ## Examples
 
-### Easier Awesomeness
-
 ### Dimension Ratio
+
+### Alignment
 
 ### Chains
 
 ### ConstraintSet
+
+### ConstraintLayout List Item
+
+### Dynamic ConstraintLayout
