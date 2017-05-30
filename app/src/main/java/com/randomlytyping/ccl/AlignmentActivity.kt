@@ -3,18 +3,22 @@ package com.randomlytyping.ccl
 import android.os.Bundle
 import android.support.annotation.IdRes
 import android.support.constraint.ConstraintLayout
-import android.support.constraint.ConstraintSet
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.transition.TransitionManager
 import android.view.View
-import android.widget.*
-import butterknife.BindView
-import butterknife.ButterKnife
+import android.view.ViewGroup
+import android.widget.RadioButton
+import android.widget.RadioGroup
+import android.widget.ScrollView
+import android.widget.SeekBar
+import butterknife.bindView
+import butterknife.bindViews
 import com.randomlytyping.ccl.util.inflateInto
 import com.randomlytyping.ccl.util.setUpAppBar
+import com.randomlytyping.ccl.util.toConstraintSet
+import com.randomlytyping.ccl.util.update
 import rt.randamu.tintBackground
-import timber.log.Timber
 
 /**
  * Examples of ways to leverage edge constraints to do interesting/useful component alignment.
@@ -22,32 +26,34 @@ import timber.log.Timber
 class AlignmentActivity : AppCompatActivity() {
 
   //region // Fields
+  private val anchorViewIds = arrayOf(R.id.anchor_top, R.id.anchor_bottom, R.id.anchor_start, R.id.anchor_end)
 
-  @BindView(R.id.constraint_layout) lateinit var constraintLayout: ConstraintLayout
-  @BindView(R.id.ratio_group) lateinit var ratioGroup: RadioGroup
-  @BindView(R.id.seek_bar) lateinit var seekBar: SeekBar
+  // Views
+  private val constraintLayout by bindView<ConstraintLayout>(R.id.constraint_layout)
+  private val ratioGroup by bindView<RadioGroup>(R.id.ratio_group)
+  private val seekBar by bindView<SeekBar>(R.id.seek_bar)
+  private val allAnchors by bindViews<View>(R.id.anchor_top, R.id.anchor_bottom, R.id.anchor_start, R.id.anchor_end,
+                                            R.id.manual_anchor_top, R.id.manual_anchor_bottom, R.id.manual_anchor_start, R.id.manual_anchor_end)
+  private val manualAnchorTop by bindView<View>(R.id.manual_anchor_top)
+  private val manualAnchorBottom by bindView<View>(R.id.manual_anchor_bottom)
+  private val manualAnchorStart by bindView<View>(R.id.manual_anchor_start)
+  private val manualAnchorEnd by bindView<View>(R.id.manual_anchor_end)
 
-  @BindView(R.id.anchor_top) lateinit var anchorTop: View
-  @BindView(R.id.anchor_bottom) lateinit var anchorBottom: View
-  @BindView(R.id.anchor_start) lateinit var anchorStart: View
-  @BindView(R.id.anchor_end) lateinit var anchorEnd: View
+  // Resources
+  private val anchorMinSize by lazy {
+    resources.getDimensionPixelSize(R.dimen.alignment_anchor_min_size)
+  }
+  private val anchorMarginHorizontal by lazy {
+    resources.getDimensionPixelSize(R.dimen.content_margin_horizontal)
+  }
+  private val anchorMarginVertical by lazy {
+    resources.getDimensionPixelSize(R.dimen.alignment_rectangle_margin_vertical)
+  }
 
-  private var anchorMinSize: Int = 0
-  private var anchorMaxSize: Int = 0
+  // Constraints
 
-  /**
-   * @return A [ConstraintSet] that can be updated and applied to the current layout.
-   */
-  private var constraintSet = ConstraintSet()
-
-  // Manual example fields
-  @BindView(R.id.frame_anchor_top) lateinit var frameAnchorTop: View
-  @BindView(R.id.frame_anchor_bottom) lateinit var frameAnchorBottom: View
-  @BindView(R.id.frame_anchor_start) lateinit var frameAnchorStart: View
-  @BindView(R.id.frame_anchor_end) lateinit var frameAnchorEnd: View
-
-  private var anchorMarginHorizontal: Int = 0
-  private var anchorMarginVertical: Int = 0
+  // A ConstraintSet that can be updated and applied to the current layout.
+  private val constraintSet by lazy { constraintLayout.toConstraintSet() }
 
   //endregion
 
@@ -58,92 +64,72 @@ class AlignmentActivity : AppCompatActivity() {
     setContentView(R.layout.activity_container_scroll_view)
 
     // Inflate content and bind views.
-    ButterKnife.bind(this, inflateInto<ScrollView>(R.id.scroll_view, R.layout.content_alignment))
+    inflateInto<ScrollView>(R.id.scroll_view, R.layout.content_alignment)
 
     setUpAppBar()
 
-    // Initialize constraint set.
-    constraintSet.clone(constraintLayout)
+    // Set up anchor views.
+    allAnchors.forEach { it.tintBackground(ContextCompat.getColor(this, R.color.colorAccent)) }
 
-    // Set up anchors
-    val colorAccent = ContextCompat.getColor(this, R.color.colorAccent)
-    anchorTop.tintBackground(colorAccent)
-    anchorBottom.tintBackground(colorAccent)
-    anchorStart.tintBackground(colorAccent)
-    anchorEnd.tintBackground(colorAccent)
-
-    // Set up seek bar to scale up/down size of the fake anchors.
-    anchorMinSize = resources.getDimensionPixelSize(R.dimen.alignment_anchor_min_size)
-    anchorMaxSize = resources.getDimensionPixelSize(R.dimen.alignment_anchor_max_size)
+    // Set up seek bar to scale up/down size of the anchors.
     with(seekBar) {
-      max = anchorMaxSize - anchorMinSize
+      max = resources.getDimensionPixelSize(R.dimen.alignment_anchor_max_size) - anchorMinSize
       setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
-        override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-          update()
+        override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
+          updateConstraintAnchors()
           updateManualAnchors()
         }
 
-        override fun onStartTrackingTouch(seekBar: SeekBar?) {}
-        override fun onStopTrackingTouch(seekBar: SeekBar?) {}
+        override fun onStartTrackingTouch(seekBar: SeekBar) {}
+        override fun onStopTrackingTouch(seekBar: SeekBar) {}
       })
     }
 
     // Set up ratio radio group and add listener to change dimension ratio of hero image
     // when clicked.
-    ratioGroup.also {
+    with(ratioGroup) {
       // Set the label text for each RadioButton.
-      (0..it.childCount - 1).forEach { i ->
-        (it.getChildAt(i) as? RadioButton)?.apply { text = toDimensionRatio(id) }
+      (0 until childCount).forEach { i ->
+        (getChildAt(i) as? RadioButton)?.apply { text = getDimensionRatio(id) }
       }
 
       // Apply ConstraintSet for each ratio as the radio buttons are checked.
-      it.setOnCheckedChangeListener { _, _ -> update(true) }
+      setOnCheckedChangeListener { _, _ -> updateConstraintAnchors(true) }
 
       // Initialize ConstraintSet.
-      it.check(R.id.ratio_01)
+      check(R.id.ratio_01)
     }
-
-    // Set up frame anchors to show manual updating
-    frameAnchorTop.tintBackground(colorAccent)
-    frameAnchorBottom.tintBackground(colorAccent)
-    frameAnchorStart.tintBackground(colorAccent)
-    frameAnchorEnd.tintBackground(colorAccent)
-
-    anchorMarginHorizontal = resources.getDimensionPixelSize(R.dimen.content_margin_horizontal)
-    anchorMarginVertical = resources.getDimensionPixelSize(R.dimen.alignment_rectangle_margin_vertical)
-
-    updateManualAnchors()
   }
 
   //endregion
 
   //region // ConstraintSet updating
 
-  private fun update(transition: Boolean = false) {
+  /**
+   * Updates the size of constraint-positioned anchors.
+   */
+  private fun updateConstraintAnchors(transition: Boolean = false) {
     if (transition) {
       TransitionManager.beginDelayedTransition(constraintLayout)
     }
-    updateConstraints(constraintSet, toDimensionRatio(ratioGroup.checkedRadioButtonId),
-        anchorMinSize + seekBar.progress)
-    constraintSet.applyTo(constraintLayout)
+
+    // Calculate anchor size based on seek bar position.
+    val anchorSize = anchorMinSize + seekBar.progress
+
+    // Update ConstraintSet and apply to layout.
+    constraintSet.update(constraintLayout) {
+      setDimensionRatio(R.id.hero, getDimensionRatio(ratioGroup.checkedRadioButtonId))
+      anchorViewIds.forEach {
+        constrainWidth(it, anchorSize)
+        constrainHeight(it, anchorSize)
+      }
+    }
   }
 
-  private fun updateConstraints(constraintSet: ConstraintSet,
-                                dimensionRatio: String, anchorSize: Int) {
-    Timber.d("Anchor size $anchorSize")
-    constraintSet.setDimensionRatio(R.id.hero, dimensionRatio)
-    resizeAnchor(constraintSet, R.id.anchor_top, anchorSize)
-    resizeAnchor(constraintSet, R.id.anchor_bottom, anchorSize)
-    resizeAnchor(constraintSet, R.id.anchor_start, anchorSize)
-    resizeAnchor(constraintSet, R.id.anchor_end, anchorSize)
-  }
-
-  private fun resizeAnchor(constraintSet: ConstraintSet, @IdRes viewId: Int, size: Int) {
-    constraintSet.constrainWidth(viewId, size)
-    constraintSet.constrainHeight(viewId, size)
-  }
-
-  private fun toDimensionRatio(@IdRes radioButtonId: Int) = getString(when (radioButtonId) {
+  /**
+   * Translate the view ID of a ratio radio button to its corresponding label string.
+   */
+  private fun getDimensionRatio(@IdRes id: Int) = getString(when (id) {
     R.id.ratio_01 -> R.string.ratio_3_1
     R.id.ratio_02 -> R.string.ratio_16_9
     R.id.ratio_03 -> R.string.ratio_4_3
@@ -154,27 +140,32 @@ class AlignmentActivity : AppCompatActivity() {
 
   //region // Manual anchor updates
 
+  /**
+   * Update the sizes and margins of all the manually-positioned anchors via layout parameters.
+   */
   private fun updateManualAnchors() {
     val size = anchorMinSize + seekBar.progress
     val halfSize = Math.round(size * 0.5f)
-    val horizontalMargin = resources.getDimensionPixelSize(R.dimen.content_margin_horizontal) - halfSize
-    val verticalMargin = resources.getDimensionPixelSize(R.dimen.alignment_rectangle_margin_vertical) - halfSize
-    updateManualAnchor(frameAnchorTop, size, verticalMargin, 0, 0, 0)
-    updateManualAnchor(frameAnchorStart, size, 0, horizontalMargin, 0, 0)
-    updateManualAnchor(frameAnchorBottom, size, 0, 0, verticalMargin, 0)
-    updateManualAnchor(frameAnchorEnd, size, 0, 0, 0, horizontalMargin)
+    val horizontalMargin = anchorMarginHorizontal - halfSize
+    val verticalMargin = anchorMarginVertical - halfSize
+    updateManualAnchor(manualAnchorTop, size, top = verticalMargin)
+    updateManualAnchor(manualAnchorBottom, size, bottom = verticalMargin)
+    updateManualAnchor(manualAnchorStart, size, start = horizontalMargin)
+    updateManualAnchor(manualAnchorEnd, size, end = horizontalMargin)
   }
 
+  /**
+   * Sets the size and margins for a single manually-positioned anchor.
+   */
   private fun updateManualAnchor(anchor: View, size: Int,
-                                 marginTop: Int, marginStart: Int,
-                                 marginBottom: Int, marginEnd: Int) {
-    anchor.layoutParams = (anchor.layoutParams as FrameLayout.LayoutParams).apply {
+                                 top: Int = 0, bottom: Int = 0, start: Int = 0, end: Int = 0) {
+    anchor.layoutParams = (anchor.layoutParams as ViewGroup.MarginLayoutParams).apply {
       width = size
       height = size
-      topMargin = marginTop
-      bottomMargin = marginBottom
-      this.marginStart = marginStart
-      this.marginEnd = marginEnd
+      topMargin = top
+      bottomMargin = bottom
+      marginStart = start
+      marginEnd = end
     }
   }
 

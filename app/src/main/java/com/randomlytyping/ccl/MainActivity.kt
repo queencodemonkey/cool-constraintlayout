@@ -1,8 +1,6 @@
 package com.randomlytyping.ccl
 
-import android.content.Context
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
 import android.support.annotation.ColorInt
 import android.support.annotation.StringRes
@@ -11,12 +9,12 @@ import android.support.v4.graphics.drawable.DrawableCompat
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import butterknife.ButterKnife
+import com.randomlytyping.ccl.util.findById
 import rt.randamu.getResourceIdArray
+import kotlin.properties.Delegates
 
 /**
  * Launcher activity + example selector.
@@ -29,9 +27,9 @@ class MainActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
 
-    ButterKnife.findById<RecyclerView>(this, android.R.id.list).also {
-      it.adapter = ExampleListAdapter()
-      it.layoutManager = LinearLayoutManager(this)
+    with(findById<RecyclerView>(android.R.id.list)) {
+      adapter = ExampleListAdapter()
+      layoutManager = LinearLayoutManager(this@MainActivity)
     }
   }
 
@@ -57,24 +55,16 @@ class MainActivity : AppCompatActivity() {
 
   /**
    * RecyclerView adapter
+   *
+   * @property examples List of string resource IDs that represent all the navigable examples.
+   * @property icons List of icon resource IDs that represent all the navigable examples.
+   * @property tint Color used to tint icons.
    */
-  private inner class ExampleListAdapter(val inflater: LayoutInflater = LayoutInflater.from(this))
+  private inner class ExampleListAdapter(
+      private val examples: List<Int> = resources.getResourceIdArray(R.array.examples),
+      private val icons: List<Int> = resources.getResourceIdArray(R.array.example_icons),
+      @ColorInt private val tint: Int = ContextCompat.getColor(this@MainActivity, R.color.icon_active_color))
     : RecyclerView.Adapter<ExampleViewHolder>() {
-
-    /**
-     * List of string resource IDs that represent all the navigable examples.
-     */
-    private val examples: List<Int> = resources.getResourceIdArray(R.array.examples)
-
-    /**
-     * List of icon resource IDs that represent all the navigable examples.
-     */
-    private val icons: List<Int> = resources.getResourceIdArray(R.array.example_icons)
-
-    /**
-     * Color used to tint icons.
-     */
-    @ColorInt private val tint:Int = ContextCompat.getColor(this@MainActivity, R.color.icon_active_color)
 
     //
     // RecyclerView.Adapter<ExampleViewHolder> implementation
@@ -84,10 +74,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         ExampleViewHolder(
-            inflater.inflate(R.layout.list_item_example, parent, false),
+            layoutInflater.inflate(R.layout.list_item_example, parent, false),
             this@MainActivity::navigateToExample,
-            tint
-        )
+            tint)
 
     override fun onBindViewHolder(holder: ExampleViewHolder, position: Int) {
       holder.resId = examples[position]
@@ -104,28 +93,24 @@ class MainActivity : AppCompatActivity() {
    */
   private class ExampleViewHolder(itemView: View,
                                   exampleListener: (Int) -> Unit,
-                                  @ColorInt private val tint:Int,
+                                  @ColorInt private val tint: Int,
                                   private val textView: TextView = itemView as TextView)
     : RecyclerView.ViewHolder(itemView) {
 
     /**
      * ID of string resource for example title.
      */
-    var resId = 0
-      set(value) {
-        field = value
-        textView.setText(value)
-      }
+    var resId by Delegates.observable(0) { _, _, new ->
+      textView.setText(new)
+    }
 
     /**
      * ID of drawable resource for example icon.
      */
-    var iconId = 0
-      set(value) {
-        field = value
-        textView.setCompoundDrawablesRelativeWithIntrinsicBounds(value, 0, 0, 0)
-        DrawableCompat.setTint(textView.compoundDrawablesRelative[0], tint)
-      }
+    var iconId by Delegates.observable(0) { _, _, new ->
+      textView.setCompoundDrawablesRelativeWithIntrinsicBounds(new, 0, 0, 0)
+      DrawableCompat.setTint(textView.compoundDrawablesRelative[0], tint)
+    }
 
     init {
       itemView.setOnClickListener { exampleListener(resId) }

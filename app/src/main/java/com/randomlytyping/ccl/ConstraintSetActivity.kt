@@ -4,17 +4,14 @@ import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
 import android.support.constraint.ConstraintLayout
-import android.support.constraint.ConstraintSet
 import android.support.transition.TransitionManager
 import android.support.v4.graphics.drawable.DrawableCompat
-import android.support.v7.app.ActionBar
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
 import android.view.ViewGroup
-import butterknife.BindView
-import butterknife.ButterKnife
+import butterknife.bindView
+import com.randomlytyping.ccl.util.ConstraintSets
 import com.randomlytyping.ccl.util.inflateInto
 import com.randomlytyping.ccl.util.setUpAppBar
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
@@ -24,17 +21,16 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
  */
 class ConstraintSetActivity : AppCompatActivity() {
 
-  @BindView(R.id.constraint_layout) internal lateinit var constraintLayout: ConstraintLayout
+  private val constraintLayout by bindView<ConstraintLayout>(R.id.constraint_layout)
+  private val constraintSet01 by lazy { ConstraintSets.from(this, R.layout.content_constraintset_01) }
+  private val constraintSet02 by lazy { ConstraintSets.from(this, R.layout.content_constraintset_02) }
 
-  private var constraintSet01: ConstraintSet = ConstraintSet()
-  private var constraintSet02: ConstraintSet = ConstraintSet()
-
-  private var original: Boolean = true
+  private var original = true
 
   //region // Activity lifecycle
 
   override fun attachBaseContext(newBase: Context?) {
-    super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase))
   }
 
   override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,13 +38,9 @@ class ConstraintSetActivity : AppCompatActivity() {
     setContentView(R.layout.activity_container_linear_layout)
 
     // Inflate content and bind views.
-    ButterKnife.bind(this, inflateInto<ViewGroup>(R.id.linear_layout, R.layout.content_constraintset_01))
+    inflateInto<ViewGroup>(R.id.linear_layout, R.layout.content_constraintset_01)
 
     setUpAppBar()
-
-    // Load ConstraintSets.
-    constraintSet01.clone(constraintLayout)
-    constraintSet02.clone(this, R.layout.content_constraintset_02)
   }
 
   // endregion
@@ -57,14 +49,12 @@ class ConstraintSetActivity : AppCompatActivity() {
 
   override fun onCreateOptionsMenu(menu: Menu): Boolean {
     menuInflater.inflate(R.menu.constraint_set, menu)
-
-    val menuItem:MenuItem = menu.findItem(R.id.action_swap_constraint_set)
-    DrawableCompat.setTint(menuItem.icon, Color.WHITE)
+    DrawableCompat.setTint(menu.findItem(R.id.action_swap_constraint_set).icon, Color.WHITE)
     return true
   }
 
-  override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-    when (item?.itemId) {
+  override fun onOptionsItemSelected(item: MenuItem): Boolean {
+    when (item.itemId) {
       R.id.action_swap_constraint_set -> {
         TransitionManager.beginDelayedTransition(constraintLayout)
         if (original) constraintSet02.applyTo(constraintLayout)
@@ -74,7 +64,7 @@ class ConstraintSetActivity : AppCompatActivity() {
       }
       else -> return super.onOptionsItemSelected(item)
     }
-  }
 
-  // endregion
+    // endregion
+  }
 }

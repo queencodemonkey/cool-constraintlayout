@@ -59,8 +59,7 @@ dependencies {
     compile "uk.co.chrisjenx:calligraphy:${versions.calligraphy}"
 
     // Utility
-    compile "com.jakewharton:butterknife:${versions.butterknife}"
-    kapt "com.jakewharton:butterknife-compiler:${versions.butterknife}"
+    compile 'com.jakewharton:kotterknife:0.1.0-SNAPSHOT'
 
     // Logging
     compile "com.jakewharton.timber:timber:${versions.timber}"
@@ -71,6 +70,13 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 }
+
 repositories {
     mavenCentral()
+    maven {
+        url 'https://maven.google.com'
+    }
+    maven {
+        url "https://oss.sonatype.org/content/repositories/snapshots"
+    }
 }

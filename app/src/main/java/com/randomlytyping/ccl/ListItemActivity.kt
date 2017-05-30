@@ -5,30 +5,27 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.support.annotation.LayoutRes
 import android.support.constraint.ConstraintLayout
 import android.support.constraint.ConstraintSet
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.transition.ChangeBounds
 import android.transition.TransitionManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import butterknife.BindView
-import butterknife.ButterKnife
-import com.randomlytyping.ccl.util.inflateInto
-import com.randomlytyping.ccl.util.setUpAppBar
+import butterknife.bindView
+import com.randomlytyping.ccl.util.*
 import rt.randamu.getResourceIdArray
 
 class ListItemActivity : AppCompatActivity() {
 
   //region // Fields
-
-  @BindView(R.id.recycler_view) lateinit var recyclerView: RecyclerView
+  private val recyclerView by bindView<RecyclerView>(R.id.recycler_view)
 
   //endregion
 
@@ -39,7 +36,7 @@ class ListItemActivity : AppCompatActivity() {
     setContentView(R.layout.activity_container_linear_layout)
 
     // Inflate content and bind views.
-    ButterKnife.bind(this, inflateInto<ViewGroup>(R.id.linear_layout, R.layout.content_recycler_view))
+    inflateInto<ViewGroup>(R.id.linear_layout, R.layout.content_recycler_view)
 
     setUpAppBar()
 
@@ -53,20 +50,17 @@ class ListItemActivity : AppCompatActivity() {
 
   /**
    * RecyclerView adapter
+   *
+   * @property context The current context.
+   * @property inflater Layout inflater.
+   * @property images List of drawable resource IDs for displayed photos.
+   * @property attributions List of string resource IDs for image attributions.
    */
   private class UnsplashAdapter(private val context: Context,
-                                private val inflater: LayoutInflater = LayoutInflater.from(context))
+                                private val inflater: LayoutInflater = LayoutInflater.from(context),
+                                private val images: List<Int> = context.resources.getResourceIdArray(R.array.unsplash_images),
+                                private val attributions: List<Int> = context.resources.getResourceIdArray(R.array.unsplash_attributions))
     : RecyclerView.Adapter<UnsplashViewHolder>() {
-
-    /**
-     * List of drawable resource IDs for displayed photos.
-     */
-    private val images: List<Int> = context.resources.getResourceIdArray(R.array.unsplash_images)
-
-    /**
-     * List of string resource IDs for image attributions.
-     */
-    private val attributions: List<Int> = context.resources.getResourceIdArray(R.array.unsplash_attributions)
 
     /**
      * List of string resource IDs for image URLs.
@@ -84,7 +78,7 @@ class ListItemActivity : AppCompatActivity() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         UnsplashViewHolder(inflater.inflate(R.layout.list_item_unsplash, parent, false),
-            ConstraintSet().apply { clone(context, R.layout.list_item_unsplash_expanded) })
+                           R.layout.list_item_unsplash_expanded)
 
     override fun onBindViewHolder(holder: UnsplashViewHolder, position: Int) {
       holder.imageDrawable = ContextCompat.getDrawable(context, images[position])
@@ -97,14 +91,17 @@ class ListItemActivity : AppCompatActivity() {
    * View holder
    */
   private class UnsplashViewHolder(itemView: View,
-                                   private val constraintSet02: ConstraintSet,
+                                   @LayoutRes alternateLayout: Int,
                                    private val constraintLayout: ConstraintLayout = itemView as ConstraintLayout,
-                                   private val attributionView: TextView = ButterKnife.findById(itemView, R.id.attribution),
-                                   private val urlView: TextView = ButterKnife.findById(itemView, R.id.url),
-                                   private val imageView: ImageView = ButterKnife.findById(itemView, R.id.image),
-                                   private val constraintSet01: ConstraintSet = ConstraintSet().apply { clone(constraintLayout) },
+                                   private val attributionView: TextView = itemView.findById(R.id.attribution),
+                                   private val urlView: TextView = itemView.findById(R.id.url),
+                                   private val imageView: ImageView = itemView.findById(R.id.image),
                                    private var primary: Boolean = true)
     : RecyclerView.ViewHolder(itemView) {
+
+
+    private val constraintSet01: ConstraintSet = constraintLayout.toConstraintSet()
+    private val constraintSet02: ConstraintSet = ConstraintSets.from(itemView.context, alternateLayout)
 
     /**
      * ID of attribution string resource.

@@ -13,11 +13,11 @@ import android.view.View.NO_ID
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import butterknife.BindView
-import butterknife.ButterKnife
-import butterknife.OnClick
+import butterknife.bindView
+import com.randomlytyping.ccl.util.findById
 import com.randomlytyping.ccl.util.inflateInto
 import com.randomlytyping.ccl.util.setUpAppBar
+import com.randomlytyping.ccl.util.toConstraintSet
 import rt.randamu.getResourceIdArray
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 import java.util.*
@@ -27,30 +27,27 @@ import java.util.*
  */
 class DynamicConstraintLayoutActivity : AppCompatActivity() {
 
-  companion object {
-    private enum class Content {
-      IMAGE,
-      TEXT
-    }
-  }
-
-  @BindView(R.id.constraint_layout) internal lateinit var constraintLayout: ConstraintLayout
-
   // Layout generation
-  private val constraintSet: ConstraintSet = ConstraintSet()
-  private lateinit var inflater: LayoutInflater
-  private var rowHeight = 0
+  private val inflater by lazy { LayoutInflater.from(this) }
+  private val constraintLayout by bindView<ConstraintLayout>(R.id.constraint_layout)
+  private val constraintSet by lazy { constraintLayout.toConstraintSet() }
+
+  // Dimension resources
+  private val rowHeight by lazy { resources.getDimensionPixelSize(R.dimen.dynamic_row_height) }
+  private val elevation by lazy { resources.getDimension(R.dimen.elevation_content) }
+
+  // Random images/text to choose
+  private val images by lazy { resources.getResourceIdArray(R.array.unsplash_images) }
+  private val strings by lazy { resources.getStringArray(R.array.random_words).toList() }
+
+  // Bookkeeping
+  private var indexImages = 0
+  private var indexStrings = 0
 
   @IdRes private var lastViewId: Int = NO_ID
   @IdRes private var lastRowId: Int = PARENT_ID
-  private var currentRow: LinkedList<Int> = LinkedList()
 
-  // Random images/text to choose
-  private lateinit var images: List<Int>
-  private lateinit var strings: List<String>
-
-  private var indexImages = 0
-  private var indexStrings = 0
+  private val currentRow: MutableList<Int> = mutableListOf()
 
   private val randomNumber = Random(1)
 
@@ -61,22 +58,19 @@ class DynamicConstraintLayoutActivity : AppCompatActivity() {
     setContentView(R.layout.activity_container_linear_layout)
 
     // Inflate content and bind views.
-    ButterKnife.bind(this, inflateInto<ViewGroup>(R.id.linear_layout, R.layout.content_dynamic_constraint_layout))
+    inflateInto<ViewGroup>(R.id.linear_layout, R.layout.content_dynamic_constraint_layout)
 
     setUpAppBar()
 
-    // Initialize constraint set.
-    constraintSet.clone(constraintLayout)
-
-    // Initialize layout builders.
-    inflater = LayoutInflater.from(this)
-    rowHeight = resources.getDimensionPixelSize(R.dimen.dynamic_row_height)
-
-    // Initialize data…
-    // Get random images.
-    images = resources.getResourceIdArray(R.array.unsplash_images)
-    // Get random strings.
-    strings = resources.getStringArray(R.array.random_words).toList()
+    findById<View>(R.id.button_add_image).setOnClickListener { addItem(this::newImage) }
+    findById<View>(R.id.button_add_text).setOnClickListener { addItem(this::newText) }
+    findById<View>(R.id.button_clear).setOnClickListener {
+      constraintLayout.removeAllViews()
+      lastRowId = PARENT_ID
+      lastViewId = NO_ID
+      currentRow.clear()
+      constraintSet.clone(constraintLayout)
+    }
   }
 
   //endregion
@@ -91,6 +85,17 @@ class DynamicConstraintLayoutActivity : AppCompatActivity() {
 
   //region // Dynamic ConstraintLayout building
 
+  /**
+   * Add item as either an item in the current row or as the single item in a whole new row.
+   */
+  private fun addItem(newItem: () -> View) {
+    if (currentRow.isNotEmpty() && flip()) addRowItem(newItem())
+    else addNewRow(newItem())
+  }
+
+  /**
+   * Add given [view] as whole new row in layout.
+   */
   private fun addNewRow(view: View) {
     constraintLayout.addView(view)
 
@@ -118,6 +123,9 @@ class DynamicConstraintLayoutActivity : AppCompatActivity() {
     lastViewId = id
   }
 
+  /**
+   * Add given [view] as constituent item of current row in layout.
+   */
   private fun addRowItem(view: View) {
     if (currentRow.isEmpty()) {
       addNewRow(view)
@@ -157,70 +165,45 @@ class DynamicConstraintLayoutActivity : AppCompatActivity() {
     lastViewId = id
   }
 
+  /**
+   * Remove elevation from previously added view and add to new view.
+   */
   private fun toggleElevation(@IdRes newViewId: Int) {
-    constraintSet.setElevation(newViewId, resources.getDimension(R.dimen.elevation_content))
+    constraintSet.setElevation(newViewId, elevation)
     constraintSet.setElevation(lastViewId, 0f)
   }
 
+  /**
+   * Create new ImageView and set its text to the next image drawable in the list.
+   */
+  private fun newImage() =
+      (inflater.inflate(R.layout.layout_dynamic_image, constraintLayout, false) as ImageView).apply {
+        id = View.generateViewId()
+        setImageResource(images[indexImages])
 
-  private fun newItem(content: Content) = when (content) {
-    Content.IMAGE -> newImage()
-    Content.TEXT -> newText()
-  }
+        // Adjust index.
+        indexImages = (indexImages + 1) % images.size
+      }
 
-  private fun newImage(): ImageView {
-    // Create new ImageView and set its text to the next image drawable in the list.
-    val imageView: ImageView = inflater.inflate(R.layout.layout_dynamic_image, constraintLayout, false) as ImageView
-    imageView.id = View.generateViewId()
-    imageView.setImageResource(images[indexImages])
+  /**
+   * Create new TextView and set its text to the next string in the list.
+   */
+  private fun newText() =
+      (inflater.inflate(R.layout.layout_dynamic_text, constraintLayout, false) as TextView).apply {
+        id = View.generateViewId()
+        text = strings[indexStrings]
 
-    // Adjust index.
-    indexImages = (indexImages + 1) % images.size
-    return imageView
-  }
-
-  private fun newText(): TextView {
-    // Create new TextView and set its text to the next string in the list.
-    val textView: TextView = inflater.inflate(R.layout.layout_dynamic_text, constraintLayout, false) as TextView
-    textView.id = View.generateViewId()
-    textView.text = strings[indexStrings]
-
-    // Adjust index
-    indexStrings = (indexStrings + 1) % strings.size
-    return textView
-  }
-
-  //endregion
-
-  //region // Listeners
-
-  @OnClick(R.id.button_add_image, R.id.button_add_text)
-  internal fun onAddClick(view: View) {
-    val newView = newItem(when (view.id) {
-      R.id.button_add_image -> Content.IMAGE
-      R.id.button_add_text -> Content.TEXT
-      else -> throw IllegalArgumentException("Unhandled view ID: $view.id")
-    })
-    if (currentRow.isNotEmpty() && flip()) {
-      addRowItem(newView)
-    } else {
-      addNewRow(newView)
-    }
-  }
-
-  @OnClick(R.id.button_clear)
-  internal fun onClearClick() {
-    constraintLayout.removeAllViews()
-    lastRowId = PARENT_ID
-    lastViewId = NO_ID
-    currentRow.clear()
-    constraintSet.clone(constraintLayout)
-  }
+        // Adjust index
+        indexStrings = (indexStrings + 1) % strings.size
+      }
 
   //endregion
 
   //region // Randomizer
 
+  /**
+   * Flip a coin. Used to decide between "new row" or "add to current row".
+   */
   private fun flip() = randomNumber.nextInt(2) == 0
 
   //endregion

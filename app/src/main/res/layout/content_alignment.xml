@@ -231,28 +231,28 @@
             android:background="@drawable/rect_stroke_grey" />
 
         <View
-            android:id="@+id/frame_anchor_top"
+            android:id="@+id/manual_anchor_top"
             style="@style/Alignment.Handle"
             android:layout_width="@dimen/alignment_anchor_min_size"
             android:layout_height="@dimen/alignment_anchor_min_size"
             android:layout_gravity="center_horizontal|top" />
 
         <View
-            android:id="@+id/frame_anchor_bottom"
+            android:id="@+id/manual_anchor_bottom"
             style="@style/Alignment.Handle"
             android:layout_width="@dimen/alignment_anchor_min_size"
             android:layout_height="@dimen/alignment_anchor_min_size"
             android:layout_gravity="center_horizontal|bottom" />
 
         <View
-            android:id="@+id/frame_anchor_start"
+            android:id="@+id/manual_anchor_start"
             style="@style/Alignment.Handle"
             android:layout_width="@dimen/alignment_anchor_min_size"
             android:layout_height="@dimen/alignment_anchor_min_size"
             android:layout_gravity="start|center_vertical" />
 
         <View
-            android:id="@+id/frame_anchor_end"
+            android:id="@+id/manual_anchor_end"
             style="@style/Alignment.Handle"
             android:layout_width="@dimen/alignment_anchor_min_size"
             android:layout_height="@dimen/alignment_anchor_min_size"
