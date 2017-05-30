@@ -9,6 +9,9 @@ import android.view.ViewGroup
 import butterknife.bindView
 import com.randomlytyping.ccl.util.*
 
+/**
+ * Examples of chains including interwoven and chained chains.
+ */
 class ChainsActivity : AppCompatActivity() {
 
   companion object {

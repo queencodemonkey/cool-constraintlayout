@@ -23,7 +23,7 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 import java.util.*
 
 /**
- * Activity for example demonstrating dynamically building up a layout using [ConstraintSet].
+ * Demonstration of dynamically building up a layout using [ConstraintSet].
  */
 class DynamicConstraintLayoutActivity : AppCompatActivity() {
 

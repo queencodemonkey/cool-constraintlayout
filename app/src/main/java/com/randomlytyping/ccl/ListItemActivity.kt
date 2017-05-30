@@ -22,6 +22,9 @@ import butterknife.bindView
 import com.randomlytyping.ccl.util.*
 import rt.randamu.getResourceIdArray
 
+/**
+ * Example of using [ConstraintLayout] as roots for list items.
+ */
 class ListItemActivity : AppCompatActivity() {
 
   //region // Fields
