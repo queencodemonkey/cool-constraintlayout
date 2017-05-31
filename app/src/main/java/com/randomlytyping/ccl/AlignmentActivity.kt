@@ -16,8 +16,8 @@ import butterknife.bindView
 import butterknife.bindViews
 import com.randomlytyping.ccl.util.inflateInto
 import com.randomlytyping.ccl.util.setUpAppBar
-import com.randomlytyping.ccl.util.toConstraintSet
-import com.randomlytyping.ccl.util.update
+import rt.randamu.toConstraintSet
+import rt.randamu.update
 import rt.randamu.tintBackground
 
 /**

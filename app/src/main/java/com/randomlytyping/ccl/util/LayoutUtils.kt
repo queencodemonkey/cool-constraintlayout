@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.randomlytyping.ccl.R
+import rt.randamu.findById
 
 // Utility methods / extensions related to activity layouts
 

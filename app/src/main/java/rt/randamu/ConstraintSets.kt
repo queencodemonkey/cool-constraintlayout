@@ -1,4 +1,4 @@
-package com.randomlytyping.ccl.util
+package rt.randamu
 
 import android.content.Context
 import android.support.annotation.LayoutRes

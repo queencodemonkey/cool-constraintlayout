@@ -1,6 +1,6 @@
 @file:JvmName("Views")
 
-package com.randomlytyping.ccl.util
+package rt.randamu
 
 import android.app.Activity
 import android.support.annotation.IdRes

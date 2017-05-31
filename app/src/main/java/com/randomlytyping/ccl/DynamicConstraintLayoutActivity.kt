@@ -14,10 +14,10 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import butterknife.bindView
-import com.randomlytyping.ccl.util.findById
+import rt.randamu.findById
 import com.randomlytyping.ccl.util.inflateInto
 import com.randomlytyping.ccl.util.setUpAppBar
-import com.randomlytyping.ccl.util.toConstraintSet
+import rt.randamu.toConstraintSet
 import rt.randamu.getResourceIdArray
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 import java.util.*

@@ -20,7 +20,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import butterknife.bindView
 import com.randomlytyping.ccl.util.*
+import rt.randamu.ConstraintSets
+import rt.randamu.findById
 import rt.randamu.getResourceIdArray
+import rt.randamu.toConstraintSet
 
 /**
  * Example of using [ConstraintLayout] as roots for list items.

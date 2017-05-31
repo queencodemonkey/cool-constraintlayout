@@ -12,7 +12,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import com.randomlytyping.ccl.util.findById
+import rt.randamu.findById
 import rt.randamu.getResourceIdArray
 import kotlin.properties.Delegates
 
