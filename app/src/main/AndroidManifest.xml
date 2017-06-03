@@ -4,6 +4,7 @@
     package="com.randomlytyping.ccl">
 
     <application
+        android:name=".CCLApplication"
         android:allowBackup="true"
         android:fullBackupContent="false"
         android:icon="@mipmap/ic_launcher"
