@@ -17,15 +17,15 @@ import rt.randamu.update
  */
 class ChainsActivity : AppCompatActivity() {
 
-  companion object {
-    private val CHAIN_STYLE = listOf(CHAIN_SPREAD, CHAIN_SPREAD_INSIDE, CHAIN_PACKED)
-  }
+  //region // Properties
 
   private val constraintLayout by bindView<ConstraintLayout>(R.id.constraint_layout)
   private val constraintSet by lazy { constraintLayout.toConstraintSet() }
 
   private var indexVertical = 0
   private var indexD = 0
+
+  //endregion
 
   //region // Activity lifecycle
 
@@ -54,6 +54,11 @@ class ChainsActivity : AppCompatActivity() {
   }
 
   //endregion
-}
 
-//endregion
+  companion object {
+    /**
+     * List of chain styles through which to cycle.
+     */
+    private val CHAIN_STYLE = listOf(CHAIN_SPREAD, CHAIN_SPREAD_INSIDE, CHAIN_PACKED)
+  }
+}

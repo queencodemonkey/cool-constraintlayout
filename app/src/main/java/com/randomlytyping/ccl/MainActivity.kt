@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
 
-    with(findById<RecyclerView>(android.R.id.list)) {
+    findById<RecyclerView>(android.R.id.list).run {
       adapter = ExampleListAdapter()
       layoutManager = LinearLayoutManager(this@MainActivity)
     }
@@ -58,13 +58,17 @@ class MainActivity : AppCompatActivity() {
    *
    * @property examples List of string resource IDs that represent all the navigable examples.
    * @property icons List of icon resource IDs that represent all the navigable examples.
-   * @property tint Color used to tint icons.
    */
   private inner class ExampleListAdapter(
-      private val examples: List<Int> = resources.getResourceIdArray(R.array.examples),
-      private val icons: List<Int> = resources.getResourceIdArray(R.array.example_icons),
-      @ColorInt private val tint: Int = ContextCompat.getColor(this@MainActivity, R.color.icon_active_color))
-    : RecyclerView.Adapter<ExampleViewHolder>() {
+      private val examples: IntArray = resources.getResourceIdArray(R.array.examples),
+      private val icons: IntArray = resources.getResourceIdArray(R.array.example_icons)
+  ) : RecyclerView.Adapter<ExampleViewHolder>() {
+
+    /**
+     * Color used to tint icons.
+     */
+    @ColorInt private val tint: Int =
+        ContextCompat.getColor(this@MainActivity, R.color.icon_active_color)
 
     //
     // RecyclerView.Adapter<ExampleViewHolder> implementation
@@ -76,7 +80,8 @@ class MainActivity : AppCompatActivity() {
         ExampleViewHolder(
             layoutInflater.inflate(R.layout.list_item_example, parent, false),
             this@MainActivity::navigateToExample,
-            tint)
+            tint
+        )
 
     override fun onBindViewHolder(holder: ExampleViewHolder, position: Int) {
       holder.resId = examples[position]
@@ -91,11 +96,16 @@ class MainActivity : AppCompatActivity() {
   /**
    * View holder
    */
-  private class ExampleViewHolder(itemView: View,
-                                  exampleListener: (Int) -> Unit,
-                                  @ColorInt private val tint: Int,
-                                  private val textView: TextView = itemView as TextView)
-    : RecyclerView.ViewHolder(itemView) {
+  private class ExampleViewHolder(
+      itemView: View,
+      exampleListener: (Int) -> Unit,
+      @ColorInt private val tint: Int
+  ) : RecyclerView.ViewHolder(itemView) {
+
+    /**
+     * Item text view.
+     */
+    private val textView: TextView = itemView as TextView
 
     /**
      * ID of string resource for example title.

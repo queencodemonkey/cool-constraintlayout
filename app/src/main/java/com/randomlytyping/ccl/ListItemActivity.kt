@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.support.annotation.ArrayRes
 import android.support.annotation.LayoutRes
 import android.support.constraint.ConstraintLayout
 import android.support.constraint.ConstraintSet
@@ -19,7 +20,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import butterknife.bindView
-import com.randomlytyping.ccl.util.*
+import com.randomlytyping.ccl.util.inflateInto
+import com.randomlytyping.ccl.util.setUpAppBar
 import rt.randamu.ConstraintSets
 import rt.randamu.findById
 import rt.randamu.getResourceIdArray
@@ -46,8 +48,10 @@ class ListItemActivity : AppCompatActivity() {
 
     setUpAppBar()
 
-    recyclerView.layoutManager = LinearLayoutManager(this)
-    recyclerView.adapter = UnsplashAdapter(this)
+    recyclerView.run {
+      layoutManager = LinearLayoutManager(this@ListItemActivity)
+      adapter = UnsplashAdapter(this@ListItemActivity)
+    }
   }
 
   //endregion
@@ -62,16 +66,17 @@ class ListItemActivity : AppCompatActivity() {
    * @property images List of drawable resource IDs for displayed photos.
    * @property attributions List of string resource IDs for image attributions.
    */
-  private class UnsplashAdapter(private val context: Context,
-                                private val inflater: LayoutInflater = LayoutInflater.from(context),
-                                private val images: List<Int> = context.resources.getResourceIdArray(R.array.unsplash_images),
-                                private val attributions: List<Int> = context.resources.getResourceIdArray(R.array.unsplash_attributions))
-    : RecyclerView.Adapter<UnsplashViewHolder>() {
+  private class UnsplashAdapter(
+      private val context: Context,
+      private val inflater: LayoutInflater = LayoutInflater.from(context)
+  ) : RecyclerView.Adapter<UnsplashViewHolder>() {
 
     /**
      * List of string resource IDs for image URLs.
      */
-    private val urls: List<Int> = context.resources.getResourceIdArray(R.array.unsplash_urls)
+    private val urls: IntArray = context.resources.getResourceIdArray(R.array.unsplash_urls)
+    private val images: IntArray = context.resources.getResourceIdArray(R.array.unsplash_images)
+    private val attributions: IntArray = context.resources.getResourceIdArray(R.array.unsplash_attributions)
 
 
     //
@@ -84,7 +89,7 @@ class ListItemActivity : AppCompatActivity() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         UnsplashViewHolder(inflater.inflate(R.layout.list_item_unsplash, parent, false),
-                           R.layout.list_item_unsplash_expanded)
+            R.layout.list_item_unsplash_expanded)
 
     override fun onBindViewHolder(holder: UnsplashViewHolder, position: Int) {
       holder.imageDrawable = ContextCompat.getDrawable(context, images[position])

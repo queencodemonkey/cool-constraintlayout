@@ -11,9 +11,9 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.ViewGroup
 import butterknife.bindView
-import rt.randamu.ConstraintSets
 import com.randomlytyping.ccl.util.inflateInto
 import com.randomlytyping.ccl.util.setUpAppBar
+import rt.randamu.ConstraintSets
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 
 /**
@@ -54,15 +54,14 @@ class ConstraintSetActivity : AppCompatActivity() {
   }
 
   override fun onOptionsItemSelected(item: MenuItem): Boolean {
-    when (item.itemId) {
-      R.id.action_swap_constraint_set -> {
-        TransitionManager.beginDelayedTransition(constraintLayout)
-        if (original) constraintSet02.applyTo(constraintLayout)
-        else constraintSet01.applyTo(constraintLayout)
-        original = !original
-        return true
-      }
-      else -> return super.onOptionsItemSelected(item)
+    if (item.itemId == R.id.action_swap_constraint_set) {
+      TransitionManager.beginDelayedTransition(constraintLayout)
+      if (original) constraintSet02.applyTo(constraintLayout)
+      else constraintSet01.applyTo(constraintLayout)
+      original = !original
+      return true
+    } else {
+      return super.onOptionsItemSelected(item)
     }
 
     // endregion
