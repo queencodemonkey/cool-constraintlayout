@@ -21,11 +21,15 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
  */
 class ConstraintSetActivity : AppCompatActivity() {
 
+  //region Properties
+
   private val constraintLayout by bindView<ConstraintLayout>(R.id.constraint_layout)
   private val constraintSet01 by lazy { ConstraintSets.from(this, R.layout.content_constraintset_01) }
   private val constraintSet02 by lazy { ConstraintSets.from(this, R.layout.content_constraintset_02) }
 
   private var original = true
+
+  //endregion
 
   //region // Activity lifecycle
 

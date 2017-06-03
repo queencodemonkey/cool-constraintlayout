@@ -37,6 +37,9 @@ class MainActivity : AppCompatActivity() {
 
   //region // Example navigation
 
+  /**
+   * Start activity associated with given example title.
+   */
   fun navigateToExample(@StringRes exampleResId: Int) {
     startActivity(Intent(this, when (exampleResId) {
       R.string.example_alignment -> AlignmentActivity::class.java
@@ -95,6 +98,10 @@ class MainActivity : AppCompatActivity() {
 
   /**
    * View holder
+   *
+   * @param itemView View representing item
+   * @param exampleListener Action executed when example item is selected.
+   * @property tint Tint applied to example icon.
    */
   private class ExampleViewHolder(
       itemView: View,

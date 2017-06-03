@@ -25,7 +25,7 @@ import rt.randamu.update
  */
 class AlignmentActivity : AppCompatActivity() {
 
-  //region // Fields
+  //region // Properties
   private val anchorViewIds =
       arrayOf(R.id.anchor_top, R.id.anchor_bottom, R.id.anchor_start, R.id.anchor_end)
 

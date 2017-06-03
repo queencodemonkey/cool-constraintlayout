@@ -32,7 +32,7 @@ import rt.randamu.toConstraintSet
  */
 class ListItemActivity : AppCompatActivity() {
 
-  //region // Fields
+  //region // Properties
   private val recyclerView by bindView<RecyclerView>(R.id.recycler_view)
 
   //endregion

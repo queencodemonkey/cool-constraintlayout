@@ -24,6 +24,9 @@ import java.util.Random
 
 /**
  * Demonstration of dynamically building up a layout using [ConstraintSet].
+ *
+ * Note: the code here is intentionally more verbose as I tend to use this
+ * example for presentations where I want to explain in more detail.
  */
 class DynamicConstraintLayoutActivity : AppCompatActivity() {
 
