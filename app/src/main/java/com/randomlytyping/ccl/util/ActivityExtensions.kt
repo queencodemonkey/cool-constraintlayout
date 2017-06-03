@@ -15,8 +15,7 @@ import rt.randamu.findById
 /**
  * Inflates a given layout into a container within this activity's layout.
  */
-fun <T : ViewGroup> AppCompatActivity.inflateInto(@IdRes containerId: Int,
-                                                  @LayoutRes layoutResId: Int) =
+fun <T : ViewGroup> AppCompatActivity.inflateInto(@IdRes containerId: Int, @LayoutRes layoutResId: Int) =
     findById<T>(containerId).apply {
       LayoutInflater.from(this@inflateInto).inflate(layoutResId, this)
     }
@@ -27,7 +26,7 @@ fun <T : ViewGroup> AppCompatActivity.inflateInto(@IdRes containerId: Int,
 fun AppCompatActivity.setUpAppBar() {
   // Set up app bar.
   setSupportActionBar(findById(R.id.app_bar))
-  supportActionBar?.apply {
+  supportActionBar?.run {
     setDisplayShowHomeEnabled(true)
     setDisplayHomeAsUpEnabled(true)
   }

@@ -10,10 +10,13 @@ import android.support.annotation.ArrayRes
 /**
  * Retrieve an array consisting of resource IDs, a list of references to other resources.
  */
-fun Resources.getResourceIdArray(@ArrayRes idArray: Int): List<Int> {
-  val typedArray = obtainTypedArray(idArray)
-  val ids = (0..typedArray.length() - 1).map { i -> typedArray.getResourceId(i, -1) }
+fun Resources.getResourceIdArray(@ArrayRes resId: Int): IntArray {
+  val typedArray = obtainTypedArray(resId)
+  val idArray = IntArray(typedArray.length())
+  for (i in 0 until typedArray.length()) {
+    idArray[i] = typedArray.getResourceId(i, -1)
+  }
   typedArray.recycle()
-  return ids
+  return idArray
 }
 
