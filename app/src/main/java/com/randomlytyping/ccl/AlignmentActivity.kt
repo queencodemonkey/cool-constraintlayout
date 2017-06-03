@@ -70,6 +70,7 @@ class AlignmentActivity : AppCompatActivity() {
 
     // Set up anchor views.
     allAnchors.forEach { it.tintBackground(ContextCompat.getColor(this, R.color.colorAccent)) }
+    updateManualAnchors()
 
     // Set up seek bar to scale up/down size of the anchors.
     with(seekBar) {
