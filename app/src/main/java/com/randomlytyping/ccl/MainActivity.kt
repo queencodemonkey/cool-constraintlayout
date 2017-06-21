@@ -87,8 +87,10 @@ class MainActivity : AppCompatActivity() {
         )
 
     override fun onBindViewHolder(holder: ExampleViewHolder, position: Int) {
-      holder.resId = examples[position]
-      holder.iconId = icons[position]
+      holder.run {
+        resId = examples[position]
+        iconId = icons[position]
+      }
     }
   }
 
