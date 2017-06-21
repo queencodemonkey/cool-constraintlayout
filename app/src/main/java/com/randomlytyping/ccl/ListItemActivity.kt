@@ -5,7 +5,6 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.support.annotation.ArrayRes
 import android.support.annotation.LayoutRes
 import android.support.constraint.ConstraintLayout
 import android.support.constraint.ConstraintSet
@@ -20,10 +19,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import butterknife.bindView
-import com.randomlytyping.ccl.util.inflateInto
 import com.randomlytyping.ccl.util.setUpAppBar
 import rt.randamu.ConstraintSets
-import rt.randamu.findById
 import rt.randamu.getResourceIdArray
 import rt.randamu.toConstraintSet
 
@@ -44,7 +41,7 @@ class ListItemActivity : AppCompatActivity() {
     setContentView(R.layout.activity_container_linear_layout)
 
     // Inflate content and bind views.
-    inflateInto<ViewGroup>(R.id.linear_layout, R.layout.content_recycler_view)
+    LayoutInflater.from(this).inflate(R.layout.content_recycler_view, findViewById(R.id.linear_layout))
 
     setUpAppBar()
 
@@ -104,9 +101,9 @@ class ListItemActivity : AppCompatActivity() {
   private class UnsplashViewHolder(itemView: View,
                                    @LayoutRes alternateLayout: Int,
                                    private val constraintLayout: ConstraintLayout = itemView as ConstraintLayout,
-                                   private val attributionView: TextView = itemView.findById(R.id.attribution),
-                                   private val urlView: TextView = itemView.findById(R.id.url),
-                                   private val imageView: ImageView = itemView.findById(R.id.image),
+                                   private val attributionView: TextView = itemView.findViewById(R.id.attribution),
+                                   private val urlView: TextView = itemView.findViewById(R.id.url),
+                                   private val imageView: ImageView = itemView.findViewById(R.id.image),
                                    private var primary: Boolean = true)
     : RecyclerView.ViewHolder(itemView) {
 

@@ -3,8 +3,7 @@ package com.randomlytyping.ccl
 import android.os.Bundle
 import android.support.constraint.ConstraintLayout
 import android.support.v7.app.AppCompatActivity
-import android.view.ViewGroup
-import com.randomlytyping.ccl.util.inflateInto
+import android.view.LayoutInflater
 import com.randomlytyping.ccl.util.setUpAppBar
 
 /**
@@ -19,7 +18,7 @@ class DimensionRatioActivity : AppCompatActivity() {
     setContentView(R.layout.activity_container_linear_layout)
 
     // Inflate content and bind views.
-    inflateInto<ViewGroup>(R.id.linear_layout, R.layout.content_dimension_ratio)
+    LayoutInflater.from(this).inflate(R.layout.content_dimension_ratio, findViewById(R.id.linear_layout))
 
     setUpAppBar()
   }

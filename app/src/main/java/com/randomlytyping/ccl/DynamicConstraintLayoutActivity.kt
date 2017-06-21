@@ -10,13 +10,10 @@ import android.support.v7.app.AppCompatActivity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.NO_ID
-import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import butterknife.bindView
-import com.randomlytyping.ccl.util.inflateInto
 import com.randomlytyping.ccl.util.setUpAppBar
-import rt.randamu.findById
 import rt.randamu.getResourceIdArray
 import rt.randamu.toConstraintSet
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
@@ -61,13 +58,13 @@ class DynamicConstraintLayoutActivity : AppCompatActivity() {
     setContentView(R.layout.activity_container_linear_layout)
 
     // Inflate content and bind views.
-    inflateInto<ViewGroup>(R.id.linear_layout, R.layout.content_dynamic_constraint_layout)
+    LayoutInflater.from(this).inflate(R.layout.content_dynamic_constraint_layout, findViewById(R.id.linear_layout))
 
     setUpAppBar()
 
-    findById<View>(R.id.button_add_image).setOnClickListener { addItem(this::newImage) }
-    findById<View>(R.id.button_add_text).setOnClickListener { addItem(this::newText) }
-    findById<View>(R.id.button_clear).setOnClickListener {
+    findViewById<View>(R.id.button_add_image).setOnClickListener { addItem(this::newImage) }
+    findViewById<View>(R.id.button_add_text).setOnClickListener { addItem(this::newText) }
+    findViewById<View>(R.id.button_clear).setOnClickListener {
       constraintLayout.removeAllViews()
       lastRowId = PARENT_ID
       lastViewId = NO_ID

@@ -6,15 +6,14 @@ import android.support.constraint.ConstraintLayout
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.transition.TransitionManager
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioButton
 import android.widget.RadioGroup
-import android.widget.ScrollView
 import android.widget.SeekBar
 import butterknife.bindView
 import butterknife.bindViews
-import com.randomlytyping.ccl.util.inflateInto
 import com.randomlytyping.ccl.util.setUpAppBar
 import rt.randamu.tintBackground
 import rt.randamu.toConstraintSet
@@ -38,7 +37,7 @@ class AlignmentActivity : AppCompatActivity() {
       R.id.anchor_start, R.id.anchor_end,
       R.id.manual_anchor_top, R.id.manual_anchor_bottom,
       R.id.manual_anchor_start, R.id.manual_anchor_end
-  )
+                                           )
   private val manualAnchorTop by bindView<View>(R.id.manual_anchor_top)
   private val manualAnchorBottom by bindView<View>(R.id.manual_anchor_bottom)
   private val manualAnchorStart by bindView<View>(R.id.manual_anchor_start)
@@ -63,7 +62,7 @@ class AlignmentActivity : AppCompatActivity() {
     setContentView(R.layout.activity_container_scroll_view)
 
     // Inflate content and bind views.
-    inflateInto<ScrollView>(R.id.scroll_view, R.layout.content_alignment)
+    LayoutInflater.from(this@AlignmentActivity).inflate(R.layout.content_alignment, findViewById(R.id.scroll_view))
 
     setUpAppBar()
 
@@ -81,6 +80,7 @@ class AlignmentActivity : AppCompatActivity() {
           updateConstraintAnchors()
           updateManualAnchors()
         }
+
         override fun onStartTrackingTouch(seekBar: SeekBar) = Unit
         override fun onStopTrackingTouch(seekBar: SeekBar) = Unit
       })
@@ -131,11 +131,11 @@ class AlignmentActivity : AppCompatActivity() {
    * Translate the view ID of a ratio radio button to its corresponding label string.
    */
   private fun getDimensionRatio(@IdRes id: Int) = getString(when (id) {
-    R.id.ratio_01 -> R.string.ratio_3_1
-    R.id.ratio_02 -> R.string.ratio_16_9
-    R.id.ratio_03 -> R.string.ratio_4_3
-    else -> R.string.ratio_3_1
-  })
+                                                              R.id.ratio_01 -> R.string.ratio_3_1
+                                                              R.id.ratio_02 -> R.string.ratio_16_9
+                                                              R.id.ratio_03 -> R.string.ratio_4_3
+                                                              else -> R.string.ratio_3_1
+                                                            })
 
   //endregion
 
@@ -165,7 +165,7 @@ class AlignmentActivity : AppCompatActivity() {
       bottom: Int = 0,
       start: Int = 0,
       end: Int = 0
-  ) {
+                                ) {
     anchor.layoutParams = (anchor.layoutParams as ViewGroup.MarginLayoutParams).apply {
       width = size
       height = size

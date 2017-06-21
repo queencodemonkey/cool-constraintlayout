@@ -12,7 +12,6 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import rt.randamu.findById
 import rt.randamu.getResourceIdArray
 import kotlin.properties.Delegates
 
@@ -27,7 +26,7 @@ class MainActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
 
-    findById<RecyclerView>(android.R.id.list).run {
+    findViewById<RecyclerView>(android.R.id.list).run {
       adapter = ExampleListAdapter()
       layoutManager = LinearLayoutManager(this@MainActivity)
     }

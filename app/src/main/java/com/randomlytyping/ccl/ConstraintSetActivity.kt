@@ -7,11 +7,10 @@ import android.support.constraint.ConstraintLayout
 import android.support.transition.TransitionManager
 import android.support.v4.graphics.drawable.DrawableCompat
 import android.support.v7.app.AppCompatActivity
+import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
-import android.view.ViewGroup
 import butterknife.bindView
-import com.randomlytyping.ccl.util.inflateInto
 import com.randomlytyping.ccl.util.setUpAppBar
 import rt.randamu.ConstraintSets
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
@@ -42,7 +41,7 @@ class ConstraintSetActivity : AppCompatActivity() {
     setContentView(R.layout.activity_container_linear_layout)
 
     // Inflate content and bind views.
-    inflateInto<ViewGroup>(R.id.linear_layout, R.layout.content_constraintset_01)
+    LayoutInflater.from(this).inflate(R.layout.content_constraintset_01, findViewById(R.id.linear_layout))
 
     setUpAppBar()
   }
