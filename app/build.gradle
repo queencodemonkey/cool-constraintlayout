@@ -3,13 +3,24 @@ apply plugin: 'kotlin-android'
 
 
 ext.versions = [
-        buildtools      : "25.0.3",
-        support         : "25.3.1",
-        constraintlayout: "1.0.2",
+        // Android
+        targetSdkVersion    : 26,
+        minSdkVersion       : 19,
+        buildtools          : "26.0.0",
+        support             : "26.0.0-beta2",
 
-        butterknife     : "8.5.1",
-        calligraphy     : "2.2.0",
-        timber          : "4.5.1"
+        // Components
+        constraintlayout    : "1.0.2",
+
+        // Logging
+        timber              : "4.5.1",
+
+        // UI
+        calligraphy         : "2.3.0",
+
+        // Utility
+        butterknife         : "8.6.0",
+        kotterknife         : "0.1.0-SNAPSHOT"
 ]
 
 def versionMajor = 0
@@ -19,12 +30,12 @@ def versionBuild = 0
 
 
 android {
-    compileSdkVersion 25
+    compileSdkVersion versions.targetSdkVersion
     buildToolsVersion "${versions.buildtools}"
     defaultConfig {
         applicationId "com.randomlytyping.ccl"
         minSdkVersion 19
-        targetSdkVersion 25
+        targetSdkVersion 26
         versionCode versionMajor * 10000 + versionMinor * 1000 + versionPatch * 100 + versionBuild
         versionName "${versionMajor}.${versionMinor}.${versionPatch}"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -55,14 +66,14 @@ dependencies {
     // Kotlin
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
+    // Logging
+    compile "com.jakewharton.timber:timber:${versions.timber}"
+
     // UI
     compile "uk.co.chrisjenx:calligraphy:${versions.calligraphy}"
 
     // Utility
-    compile 'com.jakewharton:kotterknife:0.1.0-SNAPSHOT'
-
-    // Logging
-    compile "com.jakewharton.timber:timber:${versions.timber}"
+    compile "com.jakewharton:kotterknife:${versions.kotterknife}"
 
     // Testing
     testCompile 'junit:junit:4.12'
