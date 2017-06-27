@@ -6,7 +6,7 @@ import timber.log.Timber
 /**
  * Custom application class for bootstrapping/setup.
  */
-class CCLApplication() : Application() {
+class CCLApplication : Application() {
   override fun onCreate() {
     super.onCreate()
 
