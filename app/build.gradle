@@ -6,8 +6,8 @@ ext.versions = [
         // Android
         targetSdkVersion    : 26,
         minSdkVersion       : 19,
-        buildtools          : "26.0.0",
-        support             : "26.0.0-beta2",
+        buildtools          : "26.0.1",
+        support             : "26.1.0",
 
         // Components
         constraintlayout    : "1.0.2",
@@ -19,7 +19,7 @@ ext.versions = [
         calligraphy         : "2.3.0",
 
         // Utility
-        butterknife         : "8.6.0",
+        butterknife         : "8.8.1",
         kotterknife         : "0.1.0-SNAPSHOT"
 ]
 
