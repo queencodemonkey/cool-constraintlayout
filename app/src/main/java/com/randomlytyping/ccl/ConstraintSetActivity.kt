@@ -10,8 +10,8 @@ import android.support.v7.app.AppCompatActivity
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
-import butterknife.bindView
 import com.randomlytyping.ccl.util.setUpAppBar
+import kotterknife.bindView
 import rt.randamu.ConstraintSets
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 

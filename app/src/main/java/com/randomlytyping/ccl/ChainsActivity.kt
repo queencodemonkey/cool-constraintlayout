@@ -6,8 +6,8 @@ import android.support.constraint.ConstraintLayout.LayoutParams.*
 import android.support.v7.app.AppCompatActivity
 import android.view.LayoutInflater
 import android.view.View
-import butterknife.bindView
 import com.randomlytyping.ccl.util.setUpAppBar
+import kotterknife.bindView
 import rt.randamu.toConstraintSet
 import rt.randamu.update
 

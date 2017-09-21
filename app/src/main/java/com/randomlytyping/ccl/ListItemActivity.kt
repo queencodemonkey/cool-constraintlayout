@@ -18,8 +18,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import butterknife.bindView
 import com.randomlytyping.ccl.util.setUpAppBar
+import kotterknife.bindView
 import rt.randamu.ConstraintSets
 import rt.randamu.getResourceIdArray
 import rt.randamu.toConstraintSet

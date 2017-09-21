@@ -12,9 +12,9 @@ import android.view.ViewGroup
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.SeekBar
-import butterknife.bindView
-import butterknife.bindViews
 import com.randomlytyping.ccl.util.setUpAppBar
+import kotterknife.bindView
+import kotterknife.bindViews
 import rt.randamu.tintBackground
 import rt.randamu.toConstraintSet
 import rt.randamu.update

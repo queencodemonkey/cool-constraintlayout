@@ -12,8 +12,8 @@ import android.view.View
 import android.view.View.NO_ID
 import android.widget.ImageView
 import android.widget.TextView
-import butterknife.bindView
 import com.randomlytyping.ccl.util.setUpAppBar
+import kotterknife.bindView
 import rt.randamu.getResourceIdArray
 import rt.randamu.toConstraintSet
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
