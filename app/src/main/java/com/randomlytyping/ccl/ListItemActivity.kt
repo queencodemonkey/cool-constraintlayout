@@ -130,7 +130,7 @@ class ListItemActivity : AppCompatActivity() {
     /**
      * Drawable resource.
      */
-    var imageDrawable: Drawable = ColorDrawable(Color.TRANSPARENT)
+    var imageDrawable: Drawable? = ColorDrawable(Color.TRANSPARENT)
       set(value) {
         imageView.setImageDrawable(value)
       }
