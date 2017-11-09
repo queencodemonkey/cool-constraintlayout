@@ -5,12 +5,12 @@ apply plugin: 'kotlin-android-extensions'
 ext.versions = [
         // Android
         targetSdkVersion    : 26,
-        minSdkVersion       : 19,
-        buildtools          : "26.0.1",
-        support             : "26.1.0",
+        minSdkVersion       : 21,
+        buildtools          : "26.0.2",
+        support             : "27.0.0",
 
         // Components
-        constraintlayout    : "1.0.2",
+        constraintlayout    : "1.1.0-beta3",
 
         // Logging
         timber              : "4.5.1",
