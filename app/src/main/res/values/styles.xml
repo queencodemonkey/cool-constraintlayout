@@ -7,6 +7,11 @@
         <item name="fontPath">fonts/LeagueGothicRegular.otf</item>
     </style>
 
+    <style name="TextGothic.Medium">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Subhead</item>
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+    </style>
+
     <style name="TextGothic.Small">
         <item name="android:textAppearance">@style/TextAppearance.AppCompat.Caption</item>
         <item name="android:textColor">?android:attr/textColorSecondary</item>
