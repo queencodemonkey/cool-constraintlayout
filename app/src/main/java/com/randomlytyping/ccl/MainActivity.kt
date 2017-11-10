@@ -43,6 +43,7 @@ class MainActivity : AppCompatActivity() {
     startActivity(Intent(this, when (exampleResId) {
       R.string.example_alignment -> AlignmentActivity::class.java
       R.string.example_chains -> ChainsActivity::class.java
+      R.string.example_circular -> CircularConstraintActivity::class.java
       R.string.example_list_item -> ListItemActivity::class.java
       R.string.example_constraint_set -> ConstraintSetActivity::class.java
       R.string.example_dimension_ratio -> DimensionRatioActivity::class.java

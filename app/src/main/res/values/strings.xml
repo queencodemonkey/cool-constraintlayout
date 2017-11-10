@@ -39,6 +39,9 @@
     <string name="chains_vertical_toggle">Toggle Vertical</string>
     <string name="chains_d_toggle">Toggle D</string>
 
+    <!-- Circular example -->
+    <string name="circular_label">Center of the Universe</string>
+
     <!-- ConstraintSet example -->
     <!-- ===================== -->
     <string name="example_constraint_set_title">ConstraintSet</string>

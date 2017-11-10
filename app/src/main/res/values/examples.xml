@@ -6,6 +6,7 @@
 
     <string name="example_alignment">Alignment</string>
     <string name="example_chains">Chains</string>
+    <string name="example_circular">Circular Constraints</string>
     <string name="example_constraint_set">ConstraintSet</string>
     <string name="example_dimension_ratio">Dimension Ratio</string>
     <string name="example_dynamic_constraint_layout">Dynamic ConstraintLayout</string>
@@ -16,6 +17,7 @@
         <item>@string/example_dimension_ratio</item>
         <item>@string/example_alignment</item>
         <item>@string/example_chains</item>
+        <item>@string/example_circular</item>
         <item>@string/example_constraint_set</item>
         <item>@string/example_list_item</item>
         <item>@string/example_dynamic_constraint_layout</item>
@@ -25,6 +27,7 @@
         <item>@drawable/ic_image_aspect_ratio_black_24dp</item>
         <item>@drawable/ic_format_align_left_black_24dp</item>
         <item>@drawable/ic_link_black_24dp</item>
+        <item>@drawable/ic_circle_black_24dp</item>
         <item>@drawable/ic_view_list_black_24dp</item>
         <item>@drawable/ic_list_black_24dp</item>
         <item>@drawable/ic_widgets_black_24dp</item>

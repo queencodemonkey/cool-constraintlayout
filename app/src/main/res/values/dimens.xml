@@ -78,6 +78,10 @@
     <dimen name="chains_text_padding_horizontal">8dp</dimen>
     <dimen name="chains_divider_margin_bottom">120dp</dimen>
 
+    <!-- Circular example -->
+    <dimen name="circular_center_size">96dp</dimen>
+    <dimen name="circular_radius">80dp</dimen>
+
     <!-- Dimension ratio example -->
     <dimen name="dimension_ratio_square_image_size">88dp</dimen>
     <dimen name="dimension_ratio_square_image_margin_bottom">16dp</dimen>
