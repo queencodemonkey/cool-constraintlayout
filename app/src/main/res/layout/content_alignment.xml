@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
+    android:id="@+id/constraint_layout"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/constraint_layout"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/dimension_ratio_activity_padding_bottom">
@@ -11,13 +12,13 @@
         android:id="@+id/hero"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintDimensionRatio="H,16:10"
         android:contentDescription="@null"
         android:scaleType="centerCrop"
+        app:layout_constraintDimensionRatio="H,16:10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/unsplash_oreo_cream" />
 
     <android.support.design.widget.FloatingActionButton
@@ -26,9 +27,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/fab_margin"
+        app:layout_constraintBottom_toBottomOf="@+id/hero"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hero"
-        app:layout_constraintBottom_toBottomOf="@+id/hero"
         app:srcCompat="@drawable/ic_favorite_black_24dp" />
 
     <!-- Image ratio toggle -->
@@ -38,16 +39,15 @@
         style="@style/TextView.Subheader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:minHeight="@dimen/subheader_height"
         android:layout_marginStart="@dimen/content_margin_horizontal"
         android:layout_marginTop="@dimen/content_margin_vertical"
+        android:minHeight="@dimen/subheader_height"
+        android:text="@string/ratio_group_title"
         app:layout_constraintStart_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fab"
-        app:layout_constraintBottom_toTopOf="@+id/ratio_group"
         app:layout_constraintVertical_bias="0.0"
-        app:layout_constraintVertical_chainStyle="packed"
-        android:text="@string/ratio_group_title" />
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <RadioGroup
         android:id="@+id/ratio_group"
@@ -55,29 +55,31 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/alignment_radio_group_margin_horizontal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/subheader_image_ratio"
-        app:layout_constraintBottom_toTopOf="@+id/divider_02">
+        app:layout_constraintTop_toBottomOf="@+id/subheader_image_ratio">
 
         <RadioButton
             android:id="@+id/ratio_01"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:layout_weight="1"
-            android:layout_marginTop="8dp" />
+            tools:text="@string/ratio_3_1" />
 
         <RadioButton
             android:id="@+id/ratio_02"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:layout_weight="1"
-            android:layout_marginTop="8dp" />
+            tools:text="@string/ratio_16_9" />
 
         <RadioButton
             android:id="@+id/ratio_03"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:layout_weight="1"
-            android:layout_marginTop="8dp" />
+            tools:text="@string/ratio_4_3" />
 
     </RadioGroup>
 
@@ -86,11 +88,10 @@
         style="@style/Divider"
         android:layout_width="0dp"
         android:layout_height="@dimen/divider_height"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/alignment_radio_group_margin_bottom"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ratio_group"
-        app:layout_constraintBottom_toTopOf="@+id/subheader_resize_constraint" />
-
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ratio_group" />
     <!-- Anchor resize + center by constraints -->
 
     <TextView
@@ -98,13 +99,12 @@
         style="@style/TextView.Subheader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:minHeight="@dimen/subheader_height"
         android:layout_marginStart="@dimen/content_margin_horizontal"
+        android:minHeight="@dimen/subheader_height"
+        android:text="@string/resize_constraint_group_title"
         app:layout_constraintStart_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider_01"
-        app:layout_constraintBottom_toTopOf="@+id/rect"
-        android:text="@string/resize_constraint_group_title" />
+        app:layout_constraintTop_toBottomOf="@+id/divider_01" />
 
     <View
         android:id="@+id/rect"
@@ -114,86 +114,82 @@
         android:layout_marginEnd="@dimen/content_margin_horizontal"
         android:layout_marginStart="@dimen/content_margin_horizontal"
         android:layout_marginTop="@dimen/alignment_rectangle_margin_vertical"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/subheader_resize_constraint"
+        android:background="@drawable/rect_stroke_grey"
         app:layout_constraintBottom_toTopOf="@+id/divider_02"
-        android:background="@drawable/rect_stroke_grey" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/subheader_resize_constraint" />
 
     <View
         android:id="@+id/anchor_start"
         style="@style/Alignment.Handle"
         android:layout_width="@dimen/alignment_anchor_min_size"
         android:layout_height="@dimen/alignment_anchor_min_size"
-        app:layout_constraintStart_toStartOf="@+id/rect"
+        app:layout_constraintBottom_toBottomOf="@+id/rect"
         app:layout_constraintEnd_toStartOf="@+id/rect"
-        app:layout_constraintTop_toTopOf="@+id/rect"
-        app:layout_constraintBottom_toBottomOf="@+id/rect" />
+        app:layout_constraintStart_toStartOf="@+id/rect"
+        app:layout_constraintTop_toTopOf="@+id/rect" />
 
     <View
         android:id="@+id/anchor_end"
         style="@style/Alignment.Handle"
         android:layout_width="@dimen/alignment_anchor_min_size"
         android:layout_height="@dimen/alignment_anchor_min_size"
-        app:layout_constraintStart_toEndOf="@+id/rect"
+        app:layout_constraintBottom_toBottomOf="@+id/rect"
         app:layout_constraintEnd_toEndOf="@+id/rect"
-        app:layout_constraintTop_toTopOf="@+id/rect"
-        app:layout_constraintBottom_toBottomOf="@+id/rect" />
+        app:layout_constraintStart_toEndOf="@+id/rect"
+        app:layout_constraintTop_toTopOf="@+id/rect" />
 
     <View
         android:id="@+id/anchor_bottom"
         style="@style/Alignment.Handle"
         android:layout_width="@dimen/alignment_anchor_min_size"
         android:layout_height="@dimen/alignment_anchor_min_size"
-        app:layout_constraintStart_toStartOf="@+id/rect"
+        app:layout_constraintBottom_toTopOf="@+id/rect"
         app:layout_constraintEnd_toEndOf="@+id/rect"
-        app:layout_constraintTop_toTopOf="@+id/rect"
-        app:layout_constraintBottom_toTopOf="@+id/rect" />
+        app:layout_constraintStart_toStartOf="@+id/rect"
+        app:layout_constraintTop_toTopOf="@+id/rect" />
 
     <View
         android:id="@+id/anchor_top"
         style="@style/Alignment.Handle"
         android:layout_width="@dimen/alignment_anchor_min_size"
         android:layout_height="@dimen/alignment_anchor_min_size"
-        app:layout_constraintStart_toStartOf="@+id/rect"
-        app:layout_constraintEnd_toEndOf="@+id/rect"
-        app:layout_constraintTop_toBottomOf="@+id/rect"
         app:layout_constraintBottom_toBottomOf="@+id/rect"
-        app:layout_constraintHorizontal_bias="0.5" />
+        app:layout_constraintEnd_toEndOf="@+id/rect"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/rect"
+        app:layout_constraintTop_toBottomOf="@+id/rect" />
 
     <View
         android:id="@+id/divider_02"
         style="@style/Divider"
         android:layout_width="0dp"
         android:layout_height="@dimen/divider_height"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rect"
-        app:layout_constraintBottom_toTopOf="@+id/seek_bar" />
-
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rect" />
     <!-- Seek bar for adjust size of the anchors -->
 
     <SeekBar
         android:id="@+id/seek_bar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:minHeight="@dimen/alignment_seek_bar_min_height"
         android:layout_marginEnd="@dimen/alignment_seek_bar_margin_horizontal"
         android:layout_marginStart="@dimen/alignment_seek_bar_margin_horizontal"
-        app:layout_constraintStart_toStartOf="parent"
+        android:minHeight="@dimen/alignment_seek_bar_min_height"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider_02"
-        app:layout_constraintBottom_toTopOf="@+id/divider_03" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider_02" />
 
     <View
         android:id="@+id/divider_03"
         style="@style/Divider"
         android:layout_width="0dp"
         android:layout_height="@dimen/divider_height"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/seek_bar"
-        app:layout_constraintBottom_toTopOf="@+id/subheader_resize_manual" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seek_bar" />
 
     <!-- Anchor resize + center manually -->
 
@@ -203,22 +199,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/content_margin_horizontal"
-        app:layout_constraintStart_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider_03"
-        app:layout_constraintBottom_toTopOf="@+id/manual_frame"
         android:paddingBottom="0dp"
         android:paddingTop="16dp"
-        android:text="@string/resize_manual_group_title" />
+        android:text="@string/resize_manual_group_title"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider_03" />
 
     <FrameLayout
         android:id="@+id/manual_frame"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/subheader_resize_manual"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/subheader_resize_manual">
 
         <View
             android:id="@+id/frame_rect"
